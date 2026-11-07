@@ -11,7 +11,7 @@ exports.handler=async(event)=>{
     if(event.httpMethod==='GET'){
       const {blobs}=await store.list({prefix:'note-'});
       const entries=await Promise.all(blobs.slice(-120).map(async x=>{
-        try{return await store.get(x.key,{type:'json',consistency:'strong'})}catch{return null}
+        try{return await store.get(x.key,{type:'json'})}catch{return null}
       }));
       const notes=entries.filter(x=>x && typeof x.message==='string').sort((a,b)=>b.created-a.created).slice(0,36)
         .map(({name,message,created})=>({name,message,time:new Date(created).toLocaleDateString('es',{day:'2-digit',month:'short'})}));
@@ -26,7 +26,7 @@ exports.handler=async(event)=>{
     if(blocked.test(message))return response(400,{error:'No se permiten enlaces en las notitas'});
     // Basic spam throttle; not a substitute for full moderation in public deployments.
     const rateStore=getStore('pili-public-notes-rate');
-    const last=await rateStore.get('visitor-'+id,{type:'json',consistency:'strong'});
+    const last=await rateStore.get('visitor-'+id,{type:'json'});
     const now=Date.now();
     if(last?.timestamp && now-last.timestamp<60000)return response(429,{error:'Una notita por minuto, porfa 💜'});
     const key=`note-${String(now).padStart(14,'0')}-${id.slice(0,8)}-${Math.random().toString(36).slice(2,8)}`;

@@ -6,7 +6,7 @@ const storeName='pili-clickgame';
 async function loadRanking(store){
   const {blobs}=await store.list({prefix:'player-'});
   const results=await Promise.all(blobs.slice(0,1000).map(async entry=>{
-    try{return await store.get(entry.key,{type:'json',consistency:'strong'});}catch{return null;}
+    try{return await store.get(entry.key,{type:'json'});}catch{return null;}
   }));
   return results.filter(x=>x && typeof x.score==='number' && typeof x.name==='string')
     .sort((a,b)=>b.score-a.score).slice(0,10).map(({name,score})=>({name,score}));
@@ -28,13 +28,13 @@ exports.handler=async(event)=>{
     if(!validId(id)||name.length<2)return json(400,{error:'Escribe un apodo válido de 2 a 22 caracteres'});
     const key=`player-${id}`;
     phase='leer jugador';
-    const previous=await store.getWithMetadata(key,{type:'json',consistency:'strong'});
+    const previous=await store.getWithMetadata(key,{type:'json'});
     if(body.action==='register'){
       if(previous?.data){return json(200,{score:previous.data.score,name:previous.data.name,ranking:await loadRanking(store)})}
       phase='registrar jugador';
       const created=await store.setJSON(key,{name,score:0,lastClick:0},{onlyIfNew:true});
       if(!created.modified){
-        const latest=await store.get(key,{type:'json',consistency:'strong'});
+        const latest=await store.get(key,{type:'json'});
         if(latest)return json(200,{score:latest.score,name:latest.name,ranking:await loadRanking(store)});
         return json(409,{error:'Intenta guardar tu apodo otra vez'});
       }
