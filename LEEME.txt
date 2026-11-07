@@ -1,0 +1,18 @@
+PILI.EXE — Sitio punk de Pili
+
+Para ver tu web SIN PUBLICAR:
+1. Abre index.html en Chrome.
+2. El diseño, redes y stickers funcionan sin conexión.
+3. En la sección de clips aparecerá un mensaje de preparación: todavía no se pueden cargar automáticamente los clips en un archivo HTML local.
+4. Usa el botón “VER TODOS MIS CLIPS EN TWITCH” para ir al canal.
+
+Para ACTIVAR LOS CLIPS AUTOMÁTICOS cuando decidas publicar:
+1. Crea una aplicación en https://dev.twitch.tv/console/apps y obtén TWITCH_CLIENT_ID y TWITCH_CLIENT_SECRET. NO publiques ni compartas el secreto.
+2. Despliega esta carpeta completa en Netlify. Deben incluirse netlify.toml y netlify/functions/twitch-clips.js. Si Netlify Drop no procesa funciones, usa un repositorio conectado a Netlify para el despliegue.
+3. En Netlify > Configuración del sitio > Variables de entorno, crea TWITCH_CLIENT_ID y TWITCH_CLIENT_SECRET con los valores de la app. Configura las variables para funciones; redespliega.
+4. Abre tu web publicada: mostrará los 6 clips con más vistas del canal pili_owu de Twitch. Se consultan al abrir o actualizar la página; el CDN puede conservar resultados unos 15 minutos.
+
+IMPORTANTE: no hay credenciales de Twitch dentro de la carpeta. La actualización automática queda PREPARADA, pero no activada hasta configurar Netlify y las claves. Los clips se abren en Twitch. No se han inventado títulos, miniaturas ni estadísticas.
+
+MÚSICA: Presiona REPRODUCIR; queda en bucle. Los navegadores suelen bloquear la reproducción automática.
+El archivo de audio es una canción comercial que subiste: antes de publicar la web debes contar con los derechos o permisos correspondientes.

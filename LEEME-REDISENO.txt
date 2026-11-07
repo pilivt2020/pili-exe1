@@ -1,0 +1,31 @@
+PILI.EXE — REDISEÑO CYBER-RAVE (2026)
+====================================
+
+REDISEÑO
+- Colores: negro profundo, magenta, morado, cian y VERDE ELÉCTRICO.
+- Partículas flotantes con efectos de cursor y clic (effects.js).
+- Diseño adaptado para móvil y computadora, con opción de movimiento reducido.
+- Portada, sobre mí, música, Twitch, Ko-fi, redes y minijuego.
+- Solo UN tarrito de Ko-fi. NO suma monedas al hacer clic en donar.
+- Arte: imágenes originales suministradas para esta página, sin ilustraciones generadas por IA.
+
+PARA VER LOCALMENTE
+Abrir index.html. Los efectos y la música funcionan al interactuar. Los clips de
+Twitch, el tarrito y el ranking requieren Netlify Functions publicadas.
+
+PARA ACTUALIZAR TU WEB
+1. Descomprime el ZIP.
+2. Conserva TODOS los archivos y carpetas juntos.
+3. Publica en el proyecto actual 'pilivt' de Netlify; no crees otro.
+4. El frontend se puede subir por Netlify Drop. Para asegurarte de desplegar
+   las Functions que usan @netlify/blobs, usa un repositorio Git conectado a
+   Netlify o la CLI con 'npm install' y 'netlify deploy --prod'.
+5. Mantén tus variables de entorno privadas (TWITCH_CLIENT_ID,
+   TWITCH_CLIENT_SECRET, KOFI_VERIFICATION_TOKEN). No las pongas en HTML.
+6. Verifica las Functions en tu sitio desplegado.
+
+La funcionalidad de donaciones y ranking depende de servicios backend externos;
+este archivo ZIP no puede activarlos en tu cuenta por sí solo.
+
+NOTA DE MÚSICA: usa el audio públicamente solo si tienes derecho o permiso
+para distribuirlo en tu sitio.

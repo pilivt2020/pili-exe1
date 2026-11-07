@@ -2,56 +2,67 @@
 (() => {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* note wall */
-  const noteForm = document.getElementById('note-form');
-  const noteName = document.getElementById('note-name');
-  const noteMessage = document.getElementById('note-message');
-  const noteBoard = document.getElementById('note-board');
-  const noteEmpty = document.getElementById('note-empty');
-  const clearNotes = document.getElementById('clear-notes');
-  if (noteForm && noteBoard && noteName && noteMessage && clearNotes) {
-    const KEY = 'pili.note.wall.v2';
-    const nowStamp = () => new Date().toLocaleDateString('es', {day:'2-digit', month:'short'});
-    const noteClasses = ['note-a','note-b','note-c','note-d'];
-    let notes = [];
-    try {
-      const parsed = JSON.parse(localStorage.getItem(KEY) || '[]');
-      if (Array.isArray(parsed)) notes = parsed.slice(0, 12);
-    } catch {}
-    const saveNotes = () => { try { localStorage.setItem(KEY, JSON.stringify(notes.slice(0,12))); } catch {} };
-    const renderNotes = () => {
-      noteBoard.querySelectorAll('.sticky-note').forEach((n) => n.remove());
-      if (!notes.length) {
-        if (noteEmpty) noteEmpty.hidden = false;
-        return;
-      }
-      if (noteEmpty) noteEmpty.hidden = true;
-      notes.forEach((note, i) => {
-        const article = document.createElement('article');
-        article.className = `sticky-note ${noteClasses[i % noteClasses.length]}`;
-        article.style.setProperty('--rot', `${(i % 2 ? -1 : 1) * (2 + (i % 3))}deg`);
-        const author=document.createElement('b');author.textContent=note.name||'Anónimo';const body=document.createElement('p');body.textContent=note.message;const date=document.createElement('span');date.textContent=note.time;article.append(author,body,date);
-        noteBoard.appendChild(article);
+  /* Notitas compartidas por Netlify Blobs. */
+  const noteForm=document.getElementById('note-form');
+  const noteName=document.getElementById('note-name');
+  const noteMessage=document.getElementById('note-message');
+  const noteBoard=document.getElementById('note-board');
+  const noteEmpty=document.getElementById('note-empty');
+  const refreshNotes=document.getElementById('clear-notes');
+  if(noteForm && noteBoard && noteName && noteMessage){
+    const api='/.netlify/functions/public-notes';
+    const colors=['note-a','note-b','note-c','note-d'];
+    const status=document.createElement('p');
+    status.className='notes-mini';
+    status.setAttribute('role','status');
+    noteForm.appendChild(status);
+    let visitorId;
+    try{
+      visitorId=localStorage.getItem('pili_notes_visitor');
+      if(!visitorId){visitorId=crypto.randomUUID();localStorage.setItem('pili_notes_visitor',visitorId)}
+    }catch{visitorId=crypto.randomUUID()}
+    function draw(notes){
+      noteBoard.querySelectorAll('.sticky-note').forEach(el=>el.remove());
+      noteEmpty.hidden=notes.length>0;
+      noteEmpty.textContent='Todavía no hay notitas públicas. ¡Deja la primera! ♡';
+      notes.forEach((note,i)=>{
+        const el=document.createElement('article');
+        el.className=`sticky-note ${colors[i%colors.length]}`;
+        el.style.setProperty('--rot',`${(i%2?-1:1)*(2+i%3)}deg`);
+        const b=document.createElement('b');b.textContent=note.name||'Anónimo';
+        const p=document.createElement('p');p.textContent=note.message;
+        const t=document.createElement('span');t.textContent=note.time||'';
+        el.append(b,p,t);noteBoard.appendChild(el);
       });
-    };
-    noteForm.addEventListener('submit', (ev) => {
+    }
+    async function loadNotes(){
+      try{
+        const resp=await fetch(api,{cache:'no-store'});
+        const data=await resp.json();
+        if(!resp.ok)throw Error(data.error||'No se pudieron cargar las notitas');
+        draw(Array.isArray(data.notes)?data.notes:[]);
+        status.textContent='Mensajitos compartidos con todas las visitas ♡';
+      }catch(err){status.textContent=err.message;}
+    }
+    noteForm.addEventListener('submit',async ev=>{
       ev.preventDefault();
-      const name = noteName.value.trim().slice(0,20);
-      const message = noteMessage.value.trim().slice(0,95);
-      if (!message) return;
-      notes.unshift({name: name || 'Anónimo', message, time: nowStamp()});
-      notes = notes.slice(0, 12);
-      saveNotes();
-      renderNotes();
-      noteMessage.value = '';
-      if (!name) noteName.value = '';
+      const name=noteName.value.trim().slice(0,20);
+      const message=noteMessage.value.trim().slice(0,95);
+      if(message.length<2){status.textContent='Escribe un mensajito más largo 💜';return}
+      const submit=noteForm.querySelector('button[type="submit"]');
+      submit.disabled=true;status.textContent='Publicando tu notita…';
+      try{
+        const resp=await fetch(api,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:visitorId,name,message})});
+        const data=await resp.json();if(!resp.ok)throw Error(data.error||'No se pudo publicar');
+        noteMessage.value='';
+        await loadNotes();
+        status.textContent='¡Tu notita ya está visible para todos! 💚';
+      }catch(err){status.textContent=err.message}finally{submit.disabled=false}
     });
-    clearNotes.addEventListener('click', () => {
-      notes = [];
-      saveNotes();
-      renderNotes();
-    });
-    renderNotes();
+    if(refreshNotes){refreshNotes.textContent='↻ ACTUALIZAR NOTITAS';refreshNotes.addEventListener('click',loadNotes)}
+    if('IntersectionObserver' in window){
+      const io=new IntersectionObserver(es=>{if(es.some(x=>x.isIntersecting)){loadNotes();io.disconnect()}},{rootMargin:'250px'});io.observe(noteBoard);
+    }else loadNotes();
   }
 
   /* tiny mascot */

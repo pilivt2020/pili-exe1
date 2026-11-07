@@ -1,0 +1,16 @@
+PILI.EXE — ranking y notitas COMPARTIDOS
+
+Incluye:
+- netlify/functions/click-ranking.js: incluye connectLambda(event) y registro de puntuaciones.
+- netlify/functions/public-notes.js: notas compartidas mediante Netlify Blobs.
+- script.js y extra.js: interfaz actualizada.
+
+PUBLICACIÓN:
+1) En el repositorio de GitHub vinculado al sitio pilivt, reemplaza todos los archivos por los de este paquete. index.html debe estar en la RAÍZ, junto a package.json y netlify.toml.
+2) Confirma Commit changes. Netlify publicará automáticamente desde GitHub.
+3) Comprueba GET /.netlify/functions/click-ranking (debe responder {"ranking":[]}, inicialmente).
+4) Abre la web, escribe apodo, pulsa Guardar y después clic. Si falla, revisa Cloud compute → Functions → click-ranking → Logs.
+5) Comprueba GET /.netlify/functions/public-notes (debe responder {"notes":[]}, inicialmente).
+6) Publica una nota desde la web y comprueba desde incógnito/otro teléfono.
+
+IMPORTANTE: el GET del ranking no prueba que POST/guardado funcione. Haz pruebas de registro y clic. Blobs no es una base transaccional y no garantiza puntuaciones exactas bajo clics concurrentes. Las notas públicas necesitan moderación si se comparte masivamente. Este prototipo no incluye panel de moderación, autenticación ni protección robusta contra bots; evitar publicar mensajes privados.

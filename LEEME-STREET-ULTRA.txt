@@ -1,0 +1,26 @@
+PILI.EXE — NIGHT CITY / STREET ULTRA
+
+NUEVO (decoración exclusivamente, sin IA en imágenes):
+1. Cables eléctricos y chispas CSS.
+2. Publicidad holográfica original de Pili.
+3. Figuras de metal líquido iridiscente.
+4. Carteles rotos y textura de grafiti vectorial.
+5. Paneles holográficos en secciones.
+6. Divisores con rayos eléctricos neón.
+7. Luces volumétricas en portada.
+8. Tipografía grafiti con extrusión y bloom.
+
+Mantiene Night City Ultimate con las funciones originales de Netlify para
+Twitch, Ko-fi (solo donaciones confirmadas) y ranking, música, intro, WAAAO,
+modo fuego, secretos, notitas, mascota y muro de grafitis.
+
+Para probar localmente: abrir index.html. Twitch, Ko-fi y ranking necesitan
+estar publicados correctamente con su backend. No se incluyen secretos API.
+
+Subir a Netlify: extraer el ZIP y desplegar el proyecto completo. Las funciones
+que usan @netlify/blobs deben instalar sus dependencias mediante un build de
+Netlify CLI o Git conectado (Netlify Drop no siempre las resuelve).
+
+Rendimiento: decoraciones CSS/SVG, sin librerías nuevas, efectos pesados
+reducidos en móviles, animaciones suspendidas por preferencia de
+movimiento reducido.

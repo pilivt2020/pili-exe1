@@ -1,0 +1,41 @@
+PILI.EXE — Ko-fi auténtico + ranking compartido
+
+1. El tarro SOLO cuenta eventos 'Donation' recibidos en el webhook de Ko-fi.
+   Abrir el enlace NO suma monedas. El tarro muestra la cantidad de donaciones
+   puntuales confirmadas DESDE que se conecte el webhook (no el total histórico).
+   El límite visual de 20 es decorativo; al llegar a 20, se llena y el contador
+   sigue mostrando más apoyos. No refleja la cantidad de dinero donada.
+
+2. En Netlify Environment variables agrega:
+   KOFI_VERIFICATION_TOKEN = el token de verificación de tu página Ko-fi.
+   Scope: Functions y contexto Production (o All scopes / All contexts).
+   JAMÁS poner el token en index.html, script.js ni capturas.
+
+3. En tu panel Ko-fi / Webhooks configura esta URL receptora:
+   https://pilivt.netlify.app/.netlify/functions/kofi-webhook
+   Pega el token de verificación solamente en Netlify.
+   Comprueba con un pago real pequeño. Los eventos de PRUEBA se ignoran.
+
+4. Se utiliza el paquete @netlify/blobs. Para desplegar las nuevas funciones,
+   lo más confiable es Git o Netlify CLI (hacer npm install en la carpeta
+   primero). Subir la carpeta directamente mediante Netlify Drop puede NO
+   empaquetar las dependencias y fallar las funciones nuevas.
+   Comandos en la carpeta del proyecto: npm install; netlify login;
+   netlify link (elige el proyecto 'pilivt'); netlify deploy --prod.
+
+5. Verifica:
+   https://pilivt.netlify.app/.netlify/functions/kofi-status
+   Debe responder {count:0, capacity:20,...} antes de recibir apoyos.
+   https://pilivt.netlify.app/.netlify/functions/click-ranking
+   Debe responder {ranking:[]} inicialmente.
+
+6. Juego: visitantes ponen apodo (sin cuentas), cada clic añade un punto que
+   se guarda en Netlify Blobs para ese navegador. Ranking top 10. Sistema
+   CASUAL: no resiste automatización, múltiples usuarios por navegador ni
+   garantiza exactitud si hay muchísimo tráfico simultáneo. Para una
+   clasificación competitiva seria haría falta autenticación y base SQL.
+
+7. Usamos solamente imágenes que compartiste; ninguna ilustración generada.
+
+8. Nota legal: la canción incluida es comercial, asegúrate de contar con
+   los derechos correspondientes antes de alojarla públicamente.

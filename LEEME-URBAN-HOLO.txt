@@ -1,0 +1,19 @@
+PILI.EXE — URBAN HOLO / Y2K 2099
+
+Este rediseño mantiene los archivos de la versión anterior y añade:
+- urban.css: nuevo diseño urbano con hologramas, marcos futuristas y neón verde/rosa/morado/cian.
+- urban.js: secuencia de entrada animada con barra de carga, botón SALTAR INTRO y decoración holográfica.
+- effects.js: partículas reactivas al ratón y clics.
+
+SE CONSERVAN:
+- assets/ ilustraciones originales de Pili y favicon
+- script.js: reproductor de música en bucle, clips Twitch, Ko-fi y juego con ranking
+- netlify/functions/: endpoints de Twitch, Ko-fi y ranking de clics
+- package.json y netlify.toml
+
+IMPORTANTE:
+La intro no bloquea el sitio indefinidamente y se puede saltar. Usuarios que prefieren menos movimiento la saltan automáticamente.
+Para que Twitch, Ko-fi y el ranking compartido funcionen en producción, las funciones de Netlify, variables privadas y almacenamiento deben estar configurados. La interfaz no garantiza que estas integraciones estén activas en el sitio publicado.
+El tarro no aumenta al pulsar el enlace de Ko-fi: solo muestra datos de eventos confirmados por webhook.
+Al actualizar el sitio, usa tu proyecto Netlify EXISTENTE pilivt para conservar el enlace. No publiques claves privadas dentro de la carpeta.
+La música incluida fue suministrada para pruebas; antes de publicar música comercial verifica los derechos de uso.

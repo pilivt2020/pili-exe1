@@ -1,0 +1,9 @@
+PILI.EXE — NIGHT CITY ULTIMATE
+
+Nuevos: nightcity.css, nightcity.js, skyline-far.svg y skyline-near.svg (diseñados para esta web).
+
+Incluye ciudad cyberpunk, luces volumétricas, lluvia neón, reflejos, hologramas, texturas y parallax. Modo Fuego cambia también el escenario urbano.
+
+Conserva el HTML y las funciones previas. Para Netlify con dependencias de @netlify/blobs, publicar mediante una compilación adecuada (Netlify CLI/Git), no depender únicamente del ZIP de arrastrar y soltar para las funciones.
+
+La música requiere interacción; Ko-fi y Twitch requieren variables de entorno y webhooks configurados. Los mensajes se guardan localmente.

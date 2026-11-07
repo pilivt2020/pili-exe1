@@ -1,0 +1,16 @@
+PILI.EXE — paquete con mejoras extra
+
+Se agregaron:
+1. CD holográfico interactivo.
+2. Mascota Pili chiquita que se mueve y se duerme si no la tocan.
+3. TV retro Y2K con paneles (clips / arte / mensaje).
+4. Secretos escondidos con contador y modal al completar.
+5. Pared de notitas guardadas en localStorage.
+
+Archivos nuevos:
+- extra.css
+- extra.js
+
+Para volver a publicar en Netlify:
+- Sube TODO el contenido de esta carpeta o el ZIP completo.
+- Las funciones de Twitch / Ko-fi / ranking siguen funcionando igual que antes.

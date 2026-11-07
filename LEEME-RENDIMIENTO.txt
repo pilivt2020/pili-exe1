@@ -1,0 +1,13 @@
+PILI.EXE — versión ligera para PC y celular
+
+- Eliminados PNG duplicados y archivos gráficos no usados, conservando todas las imágenes empleadas por la web.
+- Fondos originales SVG, sin generación de imágenes.
+- Efectos de partículas limitados a 24 FPS en móvil / 30 FPS escritorio, con menor resolución interna y menor cantidad de partículas.
+- Lluvia a 10 FPS móvil / ~15 FPS escritorio, con 14/40 trazos como máximo.
+- Canvas se pausa al ocultar la pestaña.
+- Datos de Twitch y ranking se consultan al aproximarse a la sección. El tarro mantiene seguimiento del webhook desde Netlify.
+- Música bajo demanda; el audio de intro requiere gesto del visitante.
+- Mini Pili no recorre la pantalla en móvil.
+- CSS reduce filtros y efectos costosos en teléfonos, mantiene estética neón.
+
+Las funciones Netlify permanecen incluidas y siguen requiriendo configuración de sus variables de entorno y publicación.

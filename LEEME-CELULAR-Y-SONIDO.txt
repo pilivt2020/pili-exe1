@@ -1,0 +1,8 @@
+PILI.EXE — SONIDO DE INTRO + VERSIÓN MÓVIL
+
+Al entrar se reproduce una animación visual. La mayoría de los navegadores (especialmente iOS/Android) bloquean audio automático sin interacción. Para oír el sonido de sintetizador, presiona «♫ ENTRAR CON SONIDO» durante la introducción. La intro avanza automáticamente aunque no se pulse. Puedes saltarla.
+
+Se comprimieron las imágenes que se usan en la página a WebP, manteniendo también los PNG originales. Se redujeron partículas y lluvia en celular, se mejoró el espaciado de menús, botones, secciones e imágenes, se separaron los dos personajes de las esquinas, y se respetan movimiento reducido y ahorro de datos.
+
+Los clips, el tarro de Ko-fi y el ranking compartido siguen necesitando sus funciones de Netlify activas.
+Para desplegar, usa el proyecto completo, incluyendo las funciones de Netlify.

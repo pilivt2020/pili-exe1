@@ -188,11 +188,11 @@ document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener(
     }catch{ranking.replaceChildren();const li=document.createElement('li');li.textContent='Ranking pendiente de conexión.';ranking.appendChild(li)}
   };
   save.addEventListener('click',async()=>{
-    save.disabled=true;message.textContent='Guardando tu apodo…';
+    save.disabled=true;message.textContent='Conectando con el ranking mundial…';
     try{const d=await send('register');score.textContent=d.score;nameInput.value=d.name;
       localStorage.setItem('pili_click_name',d.name);target.disabled=false;nameInput.disabled=true;
       message.textContent=`¡Listo, ${d.name}! Ya puedes empezar a picarle. 💚`;load();
-    }catch(e){message.textContent=e.message}finally{save.disabled=false}
+    }catch(e){target.disabled=true;message.textContent=e.message+' — si sigue, revisa Functions → click-ranking → Logs.'}finally{save.disabled=false}
   });
   let busy=false;
   target.addEventListener('click',async()=>{
