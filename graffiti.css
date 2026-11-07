@@ -1,0 +1,34 @@
+
+/* PILI.EXE // ORIGINAL STREET GRAPHIC — no reference-image backgrounds */
+:root {--graffiti-neon:#39ff14;--graffiti-pink:#ff00b8;--graffiti-violet:#9400ff;}
+.boot-overlay::after{background:radial-gradient(ellipse at 20% 70%,#00edee27,transparent 45%),repeating-linear-gradient(140deg,transparent 0 34px,#cf00ff14 36px 38px);opacity:.55;filter:none}
+.boot-avatar-frame::before{background:conic-gradient(from 30deg,#39ff141f,#ff00b84a,#00ffff26,#9400ff33,#39ff141f);clip-path:polygon(7% 12%,89% 0,100% 21%,94% 90%,18% 100%,0 82%);transform:rotate(-8deg);opacity:.8}
+.urban-hero{background:#06020b url('assets/original-urban-bg.svg') center center/cover no-repeat}
+.urban-hero::before{background:radial-gradient(circle at 83% 35%,#d800f529,transparent 43%),repeating-linear-gradient(125deg,transparent 0 27px,#00ffea04 29px 30px);opacity:1;mix-blend-mode:normal}
+.urban-hero::after{background:linear-gradient(100deg,#03020c75 0%,#05020c18 47%,#05020ce6 100%)}
+.urban-spray{position:absolute;z-index:0;filter:blur(2px);opacity:.7;mix-blend-mode:screen;pointer-events:none}
+.urban-spray-one{width:38%;aspect-ratio:1;left:-12%;top:17%;background:radial-gradient(ellipse at 40% 50%,#39ff145c 0 2%,transparent 21%),repeating-radial-gradient(circle at 40% 50%,#39ff141e 0 1px,transparent 2px 21px);transform:rotate(25deg)}
+.urban-spray-two{width:35%;aspect-ratio:1;right:-10%;bottom:-8%;background:radial-gradient(ellipse at 35% 45%,#fb00cd6e,transparent 44%),repeating-radial-gradient(circle at 35% 45%,#00ffff18 0 2px,transparent 3px 28px)}
+.urban-hologram{position:absolute;width:clamp(140px,18vw,310px);aspect-ratio:1;z-index:0;border:1px solid #00ffff70;opacity:.48;pointer-events:none;transform:rotate(18deg);background:repeating-linear-gradient(0deg,#00faff11 0 1px,transparent 2px 11px);box-shadow:0 0 42px #00ffff18,inset 0 0 60px #7f00ff2e;clip-path:polygon(0 0,77% 0,100% 24%,100% 100%,23% 100%,0 77%);animation:holo-orbit 12s ease-in-out infinite}
+.urban-hologram-a{left:8%;bottom:8%}.urban-hologram-b{right:4%;top:9%;width:clamp(100px,13vw,190px);animation-delay:-5s;transform:rotate(-17deg);border-color:#39ff1490}
+.urban-street-light{position:absolute;inset:0;background:radial-gradient(ellipse at 27% 26%,#39ff1415,transparent 30%),radial-gradient(ellipse at 68% 85%,#ff00b816,transparent 28%);mix-blend-mode:screen}
+.graffiti-one{top:3%;left:4%;font:normal clamp(72px,12vw,185px)/.9 'Rubik Spray Paint','Permanent Marker',cursive;color:#39ff14;opacity:.3;transform:rotate(-11deg);text-shadow:7px 5px 0 #ff0080,0 0 25px #39ff14}
+.graffiti-two{top:54%;right:3%;font:normal clamp(80px,15vw,230px)/.9 'Rubik Spray Paint','Permanent Marker',cursive;color:#ff00b8;opacity:.16;transform:rotate(13deg);text-shadow:-6px 3px 0 #00ffff}
+.graffiti-three{left:37%;bottom:5%;font:normal clamp(40px,5vw,75px) 'Permanent Marker',cursive;color:#00ffff;opacity:.26;transform:rotate(-7deg)}
+.urban-hero .hero-title{transform:rotate(-7deg);font-size:clamp(80px,10vw,170px);overflow:visible}
+.urban-hero .hero-title .outline-word{font:normal .34em 'Permanent Marker',cursive;color:#fff3fd;letter-spacing:.04em;-webkit-text-stroke:1px #000;text-shadow:4px 4px 0 #9500f5}
+.urban-hero .hero-title .hero-pili{font:normal 1.23em/.92 'Rubik Spray Paint','Permanent Marker',cursive;letter-spacing:-.045em;display:block;color:#39ff14;-webkit-text-stroke:2px #08010e;text-shadow:4px 4px 0 #ffffff,8px 8px 0 #8100e7,13px 14px 0 #ff0080,0 0 35px #39ff1490;transform:skew(-5deg) rotate(-2deg);position:relative;isolation:isolate}
+.urban-hero .hero-title .hero-pili::before{content:attr(data-text);position:absolute;inset:0;color:#ff00b8;-webkit-text-stroke:1px #09010d;transform:translate(-.036em,-.026em);opacity:.35;mix-blend-mode:screen}
+.urban-hero .hero-title .hero-pili::after{content:'';position:absolute;left:3%;bottom:-8%;width:82%;height:.035em;background:#00ffff;transform:rotate(-2deg) skew(-15deg);box-shadow:0 .025em 0 #ff00b8,0 0 .2em #00ffff;z-index:-1}
+.urban-hero .hero-title .hero-pili b{color:#ff00b8;text-shadow:4px 4px 0 #03030b,0 0 22px #ff00b8}
+.hero-tag-graffiti{font-family:'Permanent Marker',cursive;letter-spacing:.05em;color:#fff;text-shadow:2px 2px #9700ff,4px 4px #39ff14}
+.about::after{background:repeating-radial-gradient(circle at 40% 50%,#00ffff0d 0 2px,transparent 4px 22px);clip-path:polygon(12% 0,88% 8%,100% 89%,8% 100%);opacity:.55}
+.donation-jar-panel::before{background:repeating-linear-gradient(-30deg,#00ffff12 0 2px,transparent 3px 24px);opacity:.6}
+.end-banner::before{background:radial-gradient(circle at 85% 20%,#39ff143e,transparent 30%),repeating-linear-gradient(130deg,transparent 0 45px,#00ffff18 48px 49px),linear-gradient(115deg,#130021,#500090,#ff00b82d);opacity:.8}
+#laser-toggle{position:relative;z-index:20}
+.laser-toggle{appearance:none;flex:none;border:1px solid #39ff14;background:#130720;color:#39ff14;padding:10px 12px;font:700 10px 'Space Mono',monospace;letter-spacing:.4px;box-shadow:0 0 16px #39ff1428;cursor:pointer;white-space:nowrap}
+.laser-toggle:hover,.laser-toggle[aria-pressed="false"]{background:#390d43;color:#fff;border-color:#ff00b8}
+@keyframes holo-orbit{50%{translate:0 -16px;filter:hue-rotate(36deg)}}
+@media(max-width:760px){.urban-hero .hero-title{font-size:clamp(69px,14vw,118px)}.graffiti-one{top:10%;left:-5%;font-size:clamp(62px,17vw,110px)}.graffiti-two{top:56%;font-size:clamp(60px,17vw,150px)}.urban-hologram-a{left:-12%;bottom:30%}.laser-toggle{padding:8px;font-size:9px;margin-left:auto}.urban-hero{background-position:50% 50%}}
+@media(max-width:390px){.urban-hero .hero-title{font-size:66px}.laser-toggle{font-size:8px;padding:7px}}
+@media(prefers-reduced-motion:reduce){.urban-hologram{animation:none}}

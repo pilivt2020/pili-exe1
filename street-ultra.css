@@ -1,0 +1,85 @@
+/* PILI.EXE — STREET ULTRA / original urban visual language */
+:root{--su-a:#39ff14;--su-b:#ff00b8;--su-c:#00f6ff;--su-d:#8400ff;--su-ink:#09030f}
+body.fire-mode{--su-a:#ff961d;--su-b:#ff0080;--su-c:#00e6ff;--su-d:#b600ff;--su-ink:#130413}
+.urban-hero{position:relative;isolation:isolate}
+.street-aesthetic{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1;contain:paint}
+.street-aesthetic>*{position:absolute;pointer-events:none}
+.urban-hero .hero-inner,.urban-hero .hero-top-status,.urban-hero .hero-bottom{z-index:4;position:relative}
+/* Volumetric stage beams */
+.street-beams{inset:0;opacity:.64;mix-blend-mode:screen}
+.street-beams i{position:absolute;top:-15%;left:9%;width:clamp(150px,19vw,360px);height:105%;background:linear-gradient(180deg,var(--su-c),transparent 74%);opacity:.12;filter:blur(21px);clip-path:polygon(46% 0,55% 0,100% 100%,0 100%);transform:rotate(17deg);animation:suBeam 13s ease-in-out infinite alternate}
+.street-beams i:nth-child(2){left:58%;background:linear-gradient(var(--su-b),transparent 78%);transform:rotate(-23deg);animation-delay:-6s;opacity:.16}
+.street-beams i:nth-child(3){left:80%;width:120px;transform:rotate(-30deg);background:linear-gradient(var(--su-a),transparent 90%);animation-delay:-2.5s}
+@keyframes suBeam{50%{opacity:.23;filter:blur(29px);transform:rotate(9deg)}}
+/* Telephone poles and neon current, hand-built CSS geometry */
+.street-antenna{top:3%;width:5px;height:23%;background:linear-gradient(#6a598c,#151122);opacity:.55;border:1px solid #e6e0ff29;box-shadow:0 0 9px #000b}
+.street-antenna::before{content:"";position:absolute;top:21%;left:-34px;width:74px;height:5px;background:#362b50;box-shadow:0 14px 0 #241b37}
+.street-antenna-one{left:9%;transform:rotate(8deg)}.street-antenna-two{right:10%;transform:rotate(-7deg)}
+.street-powerline{top:10%;height:16%;width:58%;border-top:2px solid #181324;border-radius:50%;box-shadow:0 -1px 0 #00ffff17;opacity:.8}
+.street-powerline-one{left:-15%;transform:rotate(5deg)}.street-powerline-two{right:-12%;transform:rotate(-6deg)}
+.electric-spark{position:absolute;top:-5px;left:-12px;width:14px;height:8px;background:var(--su-a);box-shadow:0 0 10px var(--su-a),0 0 30px var(--su-c);border-radius:50%;offset-path:path('M 0 0 C 220 140 500 -100 850 20');offset-rotate:auto;animation:suSpark 8s linear infinite;opacity:.65}
+.street-powerline-two .electric-spark{animation-delay:-3.8s;background:var(--su-b)}
+@keyframes suSpark{0%{left:1%;opacity:0}12%{opacity:.8}83%{opacity:.8}100%{left:95%;opacity:0}}
+/* Holographic street signage */
+.street-billboard{display:flex;flex-direction:column;gap:6px;min-width:160px;padding:16px 19px;background:linear-gradient(128deg,#050d19b8,#300850c2 72%,#070a16c2);border:1px solid var(--su-c);box-shadow:0 0 0 1px #ffffff17 inset,0 0 24px var(--su-c),8px 8px 0 #05030a66;backdrop-filter:blur(7px);clip-path:polygon(0 0,90% 0,100% 15%,100% 100%,10% 100%,0 82%);opacity:.68;animation:suSignFlicker 9s steps(1,end) infinite}
+.street-billboard strong{font:normal clamp(19px,2.5vw,38px)/.86 'Rubik Spray Paint','Permanent Marker',cursive;color:var(--su-a);text-shadow:0 0 12px var(--su-a),3px 3px 0 #08020a}
+.street-billboard small,.street-billboard .bb-meta{font:700 8px 'Space Mono',monospace;letter-spacing:.6px;color:#e6dfff}
+.street-billboard .bb-meta{color:var(--su-c);font-size:7px}
+.bb-one{top:27%;right:1%;transform:rotate(7deg)}.bb-two{bottom:14%;left:2%;transform:rotate(-7deg);border-color:var(--su-b)}.bb-two strong{color:var(--su-b);text-shadow:0 0 14px var(--su-b)}
+@keyframes suSignFlicker{0%,34%,36%,86%,88%,100%{opacity:.66}35%,87%{opacity:.28}}
+/* liquid chrome abstract shape, no image generation used */
+.liquid-chrome{width:clamp(90px,12vw,240px);aspect-ratio:1/1.25;border-radius:45% 55% 38% 62%/67% 35% 65% 33%;background:radial-gradient(ellipse at 26% 21%,#fff 0 4%,transparent 9%),radial-gradient(ellipse at 72% 63%,#fff9 0 7%,transparent 24%),conic-gradient(from 55deg,#23224b,#ece9ff,#00ffff,#5a15af,#f07aff,#171639,#39ff14,#e7e6ff,#23224b);box-shadow:inset -13px -17px 25px #02010ca0,0 0 45px var(--su-b);opacity:.36;filter:saturate(1.45);mix-blend-mode:screen;animation:suChrome 14s ease-in-out infinite alternate}
+.chrome-one{top:20%;left:23%;transform:rotate(-27deg)}.chrome-two{right:8%;bottom:13%;width:clamp(85px,10vw,170px);transform:rotate(23deg);animation-delay:-7s}
+@keyframes suChrome{50%{border-radius:63% 37% 59% 41%/41% 62% 38% 59%;translate:0 -18px;filter:hue-rotate(36deg) saturate(1.4)}}
+/* torn posters and graffiti */
+.poster-scraps{padding:16px 14px;background:linear-gradient(145deg,#ff00b8f0,#ff82c8);color:#100016;transform:rotate(-15deg);border:3px solid #faf6ff;box-shadow:9px 11px 0 #05010ac0,0 0 30px var(--su-b);clip-path:polygon(0 7%,8% 0,38% 5%,64% 0,92% 5%,100% 0,97% 84%,100% 100%,70% 96%,39% 100%,0 92%);opacity:.58}
+.poster-scraps b{display:block;font:normal clamp(19px,2.7vw,36px)/.93 'Rubik Spray Paint','Permanent Marker',cursive;text-shadow:2px 2px 0 #fff}
+.poster-scraps span{font:700 8px 'Space Mono',monospace}
+.poster-a{top:12%;left:42%}.poster-b{right:24%;bottom:8%;background:linear-gradient(145deg,#39ff14,#b8fc6f);transform:rotate(10deg);opacity:.54}
+.electro-cable{width:35%;height:14%;border-top:3px dashed var(--su-c);border-radius:50%;opacity:.32;filter:drop-shadow(0 0 7px var(--su-c));transform:rotate(-19deg)}
+.cable-one{left:-5%;bottom:16%}.cable-two{right:-12%;top:37%;border-color:var(--su-a);transform:rotate(23deg)}
+.cable-bolt{position:absolute;top:0;left:20%;width:4px;height:70%;background:linear-gradient(var(--su-c),transparent);opacity:.4;transform:rotate(16deg)}
+/* Section-specific street graphics, behind content */
+.street-decoration{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden;contain:paint}
+.street-decoration>*{position:absolute;pointer-events:none}
+.street-poster{top:10%;right:2.4%;width:clamp(95px,13vw,170px);min-height:85px;padding:13px 12px 17px;background:linear-gradient(155deg,var(--su-a),#fff 180%);color:#120014;clip-path:polygon(0 0,100% 3%,94% 43%,100% 95%,87% 100%,8% 94%,0 72%);transform:rotate(12deg);box-shadow:0 0 20px var(--su-a);opacity:.2}
+.street-poster b{font:normal clamp(22px,3vw,36px)/.9 'Rubik Spray Paint','Permanent Marker',cursive;display:block;overflow-wrap:anywhere}
+.street-poster small{display:block;font:700 7px 'Space Mono',monospace;margin-top:8px}
+.poster-tape{position:absolute;top:0;left:40%;height:10px;width:32px;transform:rotate(-15deg);background:#fff7}
+.street-holo-plate{left:2%;bottom:10%;width:clamp(100px,13vw,160px);height:70px;padding:13px 12px;border:1px solid var(--su-c);transform:skew(-12deg) rotate(-8deg);background:linear-gradient(120deg,#00ffff13,#7700ff20);box-shadow:inset 0 0 18px var(--su-c),0 0 20px var(--su-c);opacity:.16;display:flex;align-items:center;justify-content:space-between;gap:4px}
+.street-holo-plate span{font-size:27px;color:var(--su-c)}.street-holo-plate i{font:700 7px 'Space Mono',monospace;color:#fff;font-style:normal}.street-holo-plate em{color:var(--su-a);font-size:24px}
+.street-bend-cable{left:0;top:8%;width:42%;height:75px;border-bottom:2px solid var(--su-c);border-radius:50%;transform:rotate(-13deg);opacity:.18;filter:drop-shadow(0 0 7px var(--su-c))}
+.street-bend-cable span{position:absolute;left:44%;bottom:-5px;width:10px;height:10px;border-radius:50%;background:var(--su-a);box-shadow:0 0 17px var(--su-a)}
+.street-softlight{width:28vw;height:28vw;max-width:360px;max-height:360px;left:-8%;bottom:3%;background:radial-gradient(circle,var(--su-b),transparent 72%);filter:blur(48px);opacity:.065;mix-blend-mode:screen}
+/* Apply the grunge SVG only on the page's environmental layers, never on artwork */
+.about,.music-section,.world,.donation-zone,.social-section,.notes-section,.tagwall,.clickgame-section{position:relative}
+.about>.street-decoration,.music-section>.street-decoration,.world>.street-decoration,.donation-zone>.street-decoration,.social-section>.street-decoration,.notes-section>.street-decoration,.tagwall>.street-decoration,.clickgame-section>.street-decoration{background:url('assets/street-grunge-original.svg') center/cover no-repeat;opacity:.5}
+/* Main panels gain asymmetrical holographic edges without changing interactions */
+.about-frame,.music-player,.clip-card,.donation-jar-panel,.clickgame-play,.clickgame-ranking,.note-form,.note-board,.tagwall-canvas{outline:1px solid color-mix(in srgb,var(--su-c),transparent 65%);outline-offset:3px}
+.about-frame,.music-player,.donation-jar-panel,.clickgame-play,.clickgame-ranking{box-shadow:0 0 0 1px var(--su-a) inset,10px 10px 0 #640cab33,0 0 30px #00ffff14}
+.section-heading{position:relative;filter:drop-shadow(0 0 12px var(--su-b));text-shadow:2px 2px 0 #0e0616,5px 5px 0 #7700ff38,-2px -2px 0 #00ffff36;letter-spacing:-.04em}
+.section-heading .lime{color:var(--su-a);text-shadow:2px 3px 0 var(--su-d),0 0 23px var(--su-a)}
+.section-heading .gradient-type{filter:drop-shadow(3px 3px 0 var(--su-d))}
+/* Dividers are jagged electric energy, not straight lines */
+.electric-divider{position:relative;z-index:2;height:54px;margin:-25px 0;pointer-events:none;display:flex;align-items:center;justify-content:center;gap:0;overflow:hidden;opacity:.72}
+.electric-divider i{width:42%;height:15px;clip-path:polygon(0 58%,9% 50%,17% 72%,28% 22%,38% 60%,51% 20%,64% 70%,77% 29%,89% 67%,100% 40%,100% 75%,0 94%);background:linear-gradient(90deg,transparent,var(--su-a),var(--su-c));filter:drop-shadow(0 0 12px var(--su-c))}
+.electric-divider i:last-child{transform:scaleX(-1)}.electric-divider span{font-size:26px;color:var(--su-a);text-shadow:0 0 14px var(--su-a),0 0 30px var(--su-c)}
+body.fire-mode .street-poster{background:linear-gradient(145deg,#ff951d,#ff0080)}
+body.fire-mode .street-aesthetic{filter:hue-rotate(-9deg) saturate(1.1)}
+/* Performance and accessibility: keep animations to composited opacity/transform; tame effects on mobile */
+@media(max-width:1050px){.poster-a,.chrome-two{display:none}.street-billboard{min-width:100px;padding:12px}.street-billboard strong{font-size:20px}.street-poster{opacity:.14}.street-aesthetic{opacity:.8}}
+@media(max-width:760px){.street-aesthetic{opacity:.56}.street-billboard,.poster-scraps,.liquid-chrome,.street-antenna,.street-powerline,.electro-cable{display:none}.street-beams i{opacity:.07;animation:none}.street-poster{opacity:.1}.street-holo-plate{opacity:.09}.electric-divider{height:38px;margin:-15px 0}.section-heading{text-shadow:2px 2px 0 #0e0616,3px 3px 0 #7700ff22}}
+@media(prefers-reduced-motion:reduce){.street-aesthetic *, .street-decoration *, .electric-divider *{animation:none!important;transition:none!important}}
+
+
+/* Sleepy raccoon corner */
+
+.sleepy-raccoon{position:fixed;left:14px;bottom:14px;z-index:12;pointer-events:none;display:flex;align-items:flex-start;gap:8px;opacity:.9;filter:drop-shadow(0 12px 24px rgba(0,0,0,.45));}
+.sleepy-raccoon img{width:clamp(90px,13vw,168px);height:auto;display:block;animation:raccoonNap 4.6s ease-in-out infinite;transform-origin:65% 78%;}
+.sleepy-raccoon-bubble{align-self:flex-start;margin-top:12px;padding:7px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:linear-gradient(135deg,rgba(12,8,21,.86),rgba(55,24,76,.78));color:#dffcff;font:700 10px 'Space Mono',monospace;letter-spacing:2px;box-shadow:0 0 18px rgba(0,255,255,.18);animation:sleepBubble 2.2s ease-in-out infinite;}
+@keyframes raccoonNap{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(4px) scale(.985)}}
+@keyframes sleepBubble{0%,100%{transform:translateY(0);opacity:.75}50%{transform:translateY(-7px);opacity:1}}
+@media (max-width: 760px){.sleepy-raccoon{left:8px;bottom:10px}.sleepy-raccoon img{width:92px}.sleepy-raccoon-bubble{font-size:9px;padding:6px 8px;margin-top:6px}}
+
+.hero-clips-link{white-space:nowrap}
+.hero-actions{flex-wrap:wrap}

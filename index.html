@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#06040d"><meta name="description" content="Pili — VTuber mapachita energética. Arte, risas, clips, directos y un montón de ocurrencias.">
+<title>PILI.EXE ✳ Tu mapache favorita</title>
+<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="assets/favicon-32.png"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="assets/pili-principal.webp" as="image" fetchpriority="high"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bungee&family=Permanent+Marker&family=Rubik+Spray+Paint&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="urban.css"><link rel="stylesheet" href="graffiti.css"><link rel="stylesheet" href="street.css"><link rel="stylesheet" href="pili-focus.css"><link rel="stylesheet" href="extra.css"><link rel="stylesheet" href="nightcity.css"><link rel="stylesheet" href="street-ultra.css"><link rel="stylesheet" href="performance.css">
+</head>
+<body>
+<div class="boot-overlay" id="boot-overlay" role="dialog" aria-modal="true" aria-label="Bienvenida a Pili.exe">
+<div class="boot-rain" aria-hidden="true"></div><div class="boot-scanbar" aria-hidden="true"></div><div class="boot-particle-stage" id="boot-particle-stage" aria-hidden="true"></div><div class="boot-shards" aria-hidden="true"><span class="boot-shard s1"></span><span class="boot-shard s2"></span><span class="boot-shard s3"></span><span class="boot-shard s4"></span><span class="boot-shard s5"></span><span class="boot-shard s6"></span></div>
+ <div class="boot-noise" aria-hidden="true"></div><div class="boot-shutter boot-shutter-a" aria-hidden="true"></div><div class="boot-shutter boot-shutter-b" aria-hidden="true"></div><div class="boot-flash" aria-hidden="true"></div><div class="boot-grid" aria-hidden="true"></div>
+ <div class="boot-top"><span>✳ PILI.EXE / PORTAL CARGANDO</span><span class="boot-serial">NEON STREET // 404</span></div>
+ <div class="boot-center"><div class="boot-charged-orbit" aria-hidden="true"></div><div class="boot-burst-word" aria-hidden="true">PILI!</div><div class="boot-signal" aria-hidden="true">✳ REUNIENDO PARTÍCULAS...</div><div class="boot-glitch" aria-hidden="true"><span>PILI</span><span>STREET</span></div>
+  <div class="boot-avatar-frame"><div class="boot-halo"></div><img decoding="async" src="assets/pili-bootface.webp" alt="Pili te da la bienvenida" decoding="async" fetchpriority="high"/></div>
+  <p class="boot-sub">ABRIENDO UN PORTAL DE NEÓN, GRAFITI Y BRILLITOS<span class="boot-dots">...</span></p>
+  <div class="boot-loader"><span id="boot-progress"></span></div><p class="boot-numeric"><span id="boot-percent">00</span>% <span>·</span> SISTEMA MAPACHE</p>
+  <p class="boot-finale" id="boot-finale">ADIÓS PAPOI ♡</p><div class="intro-audio-actions"><button type="button" id="intro-sound" class="intro-sound" aria-pressed="false">♫ ENTRAR CON SONIDO</button><button type="button" id="boot-skip" class="boot-skip">SALTAR ENTRADA ↗</button></div>
+ </div><div class="boot-bottom"><span>HOLOGRAMAS / GLITCH / CAOS BONITO</span><span>© PILI.EXE</span></div>
+</div>
+<div id="cyber-cursor" aria-hidden="true"><span></span></div><div class="screen-topline" aria-hidden="true"><span>⚡ BIENVENIDOS AL DISTRITO PILI</span><span>◉ PORTAL ABIERTO / VTUBER ONLINE</span></div>
+
+<canvas id="night-rain" aria-hidden="true"></canvas><div class="city-atmosphere" aria-hidden="true"><div class="atmo-aurora"></div><div class="atmo-glow gl-a"></div><div class="atmo-glow gl-b"></div></div><canvas id="fx-canvas" aria-hidden="true"></canvas><div class="grain" aria-hidden="true"></div><div class="site-grid" aria-hidden="true"></div>
+<header class="site-header">
+ <a class="logo" href="#inicio" aria-label="Ir al inicio"><img src="assets/favicon.png" alt="" aria-hidden="true" loading="lazy"><span>PILI<span class="logo-dot">.</span>EXE</span></a>
+ <nav id="nav-links" class="nav-links" aria-label="Navegación principal"><a href="#sobre-mi">SOBRE MÍ</a><a href="#musica">MÚSICA</a><a href="#mi-mundo">CLIPS</a><a href="#apoyame">KO-FI</a><a href="#mensajitos">NOTITAS</a><a href="#muro">MURO</a><a href="#juego">JUEGO</a><a class="nav-contact" href="#redes">MIS REDES ↗</a></nav>
+ <button class="laser-toggle" id="laser-toggle" type="button" aria-pressed="true" title="Silenciar efectos de clic">♫ EFECTOS ON</button><button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+</header>
+
+<div class="sleepy-raccoon" aria-hidden="true">
+  <img src="assets/mapache-dormido.webp" alt="" decoding="async" loading="lazy">
+  <div class="sleepy-raccoon-bubble">z z z</div>
+</div>
+<div class="secret-tracker" id="secret-tracker" aria-live="polite">✦ SECRETOS <span id="secret-count">0</span>/6</div>
+<div class="pili-mascot" id="pili-mascot" aria-live="polite">
+  <button type="button" class="mascot-button" id="mascot-button" aria-label="Hablar con Pili mini">
+    <img id="mascot-image" src="assets/pili-cute-face.webp" alt="Mini Pili" loading="lazy">
+  </button>
+  <div class="mascot-bubble" id="mascot-bubble">holi, patrona ♡</div>
+  <div class="mascot-sleep" id="mascot-sleep" aria-hidden="true">z z z</div>
+</div>
+<div class="secret-modal" id="secret-modal" hidden>
+  <div class="secret-modal-card">
+    <img src="assets/pili-heart.webp" alt="Pili abrazando un corazón" loading="lazy">
+    <p class="section-label">[ SECRETO DESBLOQUEADO ]</p>
+    <h3>¡ENCONTRASTE TODOS MIS MAPA-SECRETOS!</h3>
+    <p>Te ganaste una lluvia de brillitos, un mini ataque de amor y el título honorario de exploradora de la guarida. ♡</p>
+    <button type="button" id="secret-close">CERRAR ✦</button>
+  </div>
+</div>
+
+<main>
+<section class="hero urban-hero" id="inicio">
+ <div class="street-aesthetic" aria-hidden="true">
+  <div class="street-beams"><i></i><i></i><i></i></div>
+  <div class="street-antenna street-antenna-one"></div><div class="street-antenna street-antenna-two"></div>
+  <div class="street-powerline street-powerline-one"><span class="electric-spark"></span></div>
+  <div class="street-powerline street-powerline-two"><span class="electric-spark"></span></div>
+  <div class="street-billboard bb-one"><span class="bb-meta">Nº 001 // STREAM SIGNAL</span><strong>PILI<br>ESTÁ AQUÍ</strong><small>LIVE / CYBER DISTRICT</small></div>
+  <div class="street-billboard bb-two"><span class="bb-meta">WARNING // ARCHIVE</span><strong>LORE<br>PROHIBIDO</strong><small>NO PREGUNTES ♡</small></div>
+  <div class="liquid-chrome chrome-one"></div><div class="liquid-chrome chrome-two"></div>
+  <div class="poster-scraps poster-a"><b>STREET<br>QUEEN</b><span>✳ PILI 404 ✳</span></div>
+  <div class="poster-scraps poster-b"><b>PAPOI!</b><span>NEON / URBANO</span></div>
+  <div class="electro-cable cable-one"><i class="cable-bolt"></i></div><div class="electro-cable cable-two"><i class="cable-bolt"></i></div>
+</div>
+<div class="urban-hero-fx" aria-hidden="true">
+   <div class="city-horizon"><div class="city-skyline city-far"></div><div class="city-skyline city-near"></div><div class="city-ground-reflection"></div></div>
+   <div class="city-cable cable-a"></div><div class="city-cable cable-b"></div>
+   <div class="city-ad ad-a"><span class="ad-id">HOLO // 01</span><b>PILI<br/>STREET</b><small>★ 24/7 NEON ★</small></div>
+   <div class="city-ad ad-b"><span class="ad-id">CHANNEL // 07</span><b>NO<br/>SIGNAL?</b><small>REINTENTAR ↗</small></div>
+  <div class="urban-grid-floor"></div>
+  <div class="graffiti graffiti-one">PILI!</div>
+  <div class="graffiti graffiti-two">404</div>
+  <div class="graffiti graffiti-three">MAPACHE</div>
+  <div class="hero-slasher slasher-a"></div><div class="hero-slasher slasher-b"></div><div class="hero-slasher slasher-c"></div>
+  <div class="urban-spray urban-spray-one"></div><div class="urban-spray urban-spray-two"></div>
+  <div class="urban-hologram urban-hologram-a"></div><div class="urban-hologram urban-hologram-b"></div>
+  <div class="urban-street-light"></div>
+</div>
+<div class="urban-side-tag">[ PILI STREET // HOLO PUNK SECTOR — 001 ]</div>
+ <div class="hero-top-status mono"><span>● SEÑAL CALLEJERA</span><span>HOLOGRAMA / PUNK-Y2K</span></div>
+ <div class="hero-inner">
+  <div class="hero-copy">
+   <div class="hero-strap"><span class="hero-strap-star">✷</span> VTUBER / URBAN CYBER / MAPACHE PUNK</div>
+   <h1 class="hero-title" aria-label="Pili"><span class="outline-word">ESTO ES</span><span class="hero-pili pili-wow" tabindex="0" role="button" aria-label="Escuchar a Pili decir wow" data-text="PILI!">PILI<b>!</b></span><span class="hero-tag-graffiti">GRAFFITI // PILI STREET</span></h1>
+   <div class="hero-sticker-row"><span class="neo-label neo-green">VERDE TÓXICO ↗</span><span class="neo-label neo-pink">GLITCH + CHISME</span><span class="neo-label neo-cyan">HOLOGRAM MODE</span></div>
+   <p class="hero-desc">Soy Pili, <strong>tu mapachita urbana, cyberpunk y medio caótica.</strong> Amo hacer reír a la gente, hablar sin parar, comer rico y dejar una huella brillante en el corazón de todos. Todo con mucho neón, mucho arte y cero vergüenza, JAJA.</p>
+   <div class="hero-actions"><a class="button-primary" href="#sobre-mi">ENTRA A MI MUNDO <span>↗</span></a><a class="button-secondary" href="https://www.twitch.tv/pili_owu" target="_blank" rel="noopener noreferrer">VER MI TWITCH ↗</a><a class="button-secondary hero-clips-link" href="#mi-mundo">MIS CLIPS FAVORITOS ✦</a></div>
+   <p class="micro-footnote">[ ADVERTENCIA: CONTENIDO ALTAMENTE BODRIO ]</p>
+  </div>
+  <div class="hero-art pili-wow" tabindex="0" role="button" aria-label="Toca la ilustración de Pili para escuchar wow">
+   <div class="holo-radar"><span>01</span><i></i></div><div class="holo-rings"></div><div class="holo-backplate"></div><img class="hero-sticker-cute" src="assets/pili-cute-face.webp" alt="" aria-hidden="true" loading="lazy">
+   <div class="holo-corner holo-corner-tl"></div><div class="holo-corner holo-corner-br"></div>
+   <img fetchpriority="high" decoding="async" class="hero-avatar" decoding="async" fetchpriority="high" draggable="false" src="assets/pili-principal.webp" alt="Ilustración original de Pili, mapachita de ojos verdes" />
+   <div class="holo-caption"><b>✳ ¡PÍCALE A PILI!</b><span>100% REAL MAPACHE</span></div>
+   <div class="art-tag">✦ TOCA A PILI • ¡WOW!</div><span class="hero-patch">⚡ HOLO<br>PUNK</span>
+  </div>
+ </div><div class="hero-bottom mono"><span>✳ CALLE / HOLOGRAMAS / GRAFITI / ARTE</span><a href="#sobre-mi">DESLIZA PARA EXPLORAR ↓</a></div>
+</section>
+<div class="street-break" aria-label="Mis gustos y ocurrencias"><div class="street-break-glow" aria-hidden="true"></div>
+ <span class="street-piece piece-one">★ ARTE Y TONTERÍAS</span><span class="street-piece piece-two">♡ ME ENCANTA COMER</span><span class="street-piece piece-three">NO PREGUNTES POR MI LORE ↗</span><span class="street-piece piece-four">✳ PILI! PILI! PILI!</span>
+ <div class="street-sparks" aria-hidden="true"><i>✴</i><i>✳</i><i>✦</i><i>★</i></div></div>
+
+<section class="about section-pad" id="sobre-mi"><div class="street-decoration" aria-hidden="true">
+      <div class="street-poster"><span class="poster-tape"></span><b>PILI!</b><small>ARCHIVO // PILI</small></div>
+      <div class="street-holo-plate"><span>✦</span><i>PORTADA 01</i><em>↗</em></div>
+      <div class="street-bend-cable"><span></span></div>
+      <div class="street-softlight"></div>
+    </div><div class="section-tech-line" aria-hidden="true"><span>◢◤　CREW // PILI</span><i></i><span>✦ 2099 / PILI</span></div><div class="section-holo-rail" aria-hidden="true"></div><div class="section-ink about-ink" aria-hidden="true">CREATIVE // 001</div>
+ <span class="section-label">[ 01 / SOBRE MÍ ]</span><div class="about-layout">
+ <div class="about-copy"><span class="chip pink-chip">♡ HOLA, HOLA</span><h2 class="section-heading">CONOCE MÁS<br><span class="gradient-type">SOBRE MÍ</span><span class="lime">.</span></h2><p>Me encanta dibujar, comer rico y quedarme platicando horas. Mi color favorito es el <strong>rosa</strong>, aunque viendo esta página no parezca, JAJA.</p><p>Y del lore mejor ni hablamos, porque ni yo sé qué está pasando. Ponte cómoda, aquí venimos a reírnos y a pasar el rato. ♡</p><div class="mini-tags"><span>#ARTE</span><span>#COMIDITA</span><span>#ROSA</span><span>#MAPACHE</span></div></div>
+ <div class="about-visual"><div class="about-frame"><span class="frame-hud">PILI / FOTO 002</span><img src="assets/pili-arte-neon.webp" alt="Ilustración original de la cara de Pili en colores vibrantes" loading="lazy"><span class="visual-asterisk">✳</span><div class="visual-stamp">DEMOS<br>ALGO DE<br>QUÉ HABLAR</div></div><img class="floatie about-sticker" src="assets/pili-glasses.webp" alt="" aria-hidden="true" loading="lazy"></div>
+ </div>
+</section><div class="electric-divider" aria-hidden="true"><i></i><span>⚡</span><i></i></div>
+
+<section class="music-section section-pad" id="musica" aria-labelledby="music-title"><div class="street-decoration" aria-hidden="true">
+      <div class="street-poster"><span class="poster-tape"></span><b>SOUND</b><small>ON AIR // PILI FM</small></div>
+      <div class="street-holo-plate"><span>✦</span><i>AUDIO 02</i><em>↗</em></div>
+      <div class="street-bend-cable"><span></span></div>
+      <div class="street-softlight"></div>
+    </div><div class="section-tech-line" aria-hidden="true"><span>◢◤　SEÑAL // PILI.FM</span><i></i><span>✦ 2099 / PILI</span></div><div class="section-holo-rail" aria-hidden="true"></div>
+ <div class="street-number" aria-hidden="true">02</div><div class="edge-sticker music-edge" aria-hidden="true">♪ LOUD!</div><span class="section-label">[ 02 / MI ROLITA ]</span><div class="music-layout"><div><span class="chip purple-chip">♫ SONIDO ENCENDIDO</span><h2 id="music-title" class="section-heading">DALE<br><span class="lime">PLAY_</span></h2><p>Una rolita para escuchar mientras husmeas por aquí. La pones una vez y sigue sonando en bucle. 💜</p><p class="music-credits">Mousse T. feat. Hot 'n' Juicy — Horny (SID37OX Remix)</p></div>
+ <div class="music-player"><div class="music-top mono"><span>♪ REPRODUCTOR PILI.FM</span><span>VOL. 01</span></div><div class="disc-row"><div class="music-disc"><span>✳</span></div><div class="music-song"><strong>MI ROLITA FAVORITA</strong><span>REPETICIÓN ACTIVADA ↻</span></div></div><div class="music-buttons"><button id="music-toggle" class="music-play" type="button" aria-label="Reproducir música" aria-pressed="false">▶ REPRODUCIR</button><div class="music-volume"><label for="music-volume">VOLUMEN</label><input type="range" id="music-volume" min="0" max="100" value="45" aria-label="Volumen"></div></div><div class="music-progress"><span id="music-time">0:00</span><div class="music-track"><div id="music-progress-fill" class="music-progress-fill"></div></div><span id="music-duration">--:--</span></div><p class="music-status" id="music-status" role="status">Presiona reproducir para empezar ♡</p><audio id="pili-music" src="assets/musica-pili.mp3" preload="none" loop></audio></div>
+ </div>
+</section><div class="electric-divider" aria-hidden="true"><i></i><span>⚡</span><i></i></div>
+
+<section class="world section-pad" id="mi-mundo"><div class="street-decoration" aria-hidden="true">
+      <div class="street-poster"><span class="poster-tape"></span><b>REPLAY</b><small>CLIPS // RECORDING</small></div>
+      <div class="street-holo-plate"><span>✦</span><i>VIDEO 03</i><em>↗</em></div>
+      <div class="street-bend-cable"><span></span></div>
+      <div class="street-softlight"></div>
+    </div><div class="section-tech-line" aria-hidden="true"><span>◢◤　DIRECTO // REC</span><i></i><span>✦ 2099 / PILI</span></div><div class="section-holo-rail" aria-hidden="true"></div><div class="section-ink clips-ink" aria-hidden="true">PLAY BACK</div><img class="floatie floatie-clips" src="assets/pili-chaos.webp" alt="" aria-hidden="true" loading="lazy"><div class="street-number" aria-hidden="true">03</div><span class="section-label">[ 03 / EN DIRECTO ]</span><div class="world-head clips-head"><div><span class="chip green-chip">● MOMENTOS EN TWITCH</span><h2 class="section-heading">MIS <span class="gradient-type">CLIPS_</span></h2></div><p>Me pasan tantas cosas en directo que algunas tenían que quedar grabadas. Aquí están los clips más vistos.</p></div><div class="clips-toolbar"><span class="clips-indicator"><i class="online-dot"></i> TOP DE @PILI_OWU</span><button type="button" class="clips-refresh" id="refresh-clips" aria-label="Actualizar clips de Twitch">↻ ACTUALIZAR CLIPS</button></div><div id="twitch-clips" class="clips-grid" aria-live="polite" aria-busy="true"><div class="clip-placeholder"><span class="clip-placeholder-icon">▶</span><h3>CARGANDO CLIPS…</h3><p>Buscando los mejores momentos de la mapache.</p></div></div><p class="clips-message" id="clips-message" role="status"></p><a class="clips-all" href="https://www.twitch.tv/pili_owu/clips" target="_blank" rel="noopener noreferrer">VER TODOS MIS CLIPS EN TWITCH ↗</a></section><div class="electric-divider" aria-hidden="true"><i></i><span>⚡</span><i></i></div>
+
+<section class="donation-zone section-pad" id="apoyame" aria-labelledby="kofi-title"><div class="street-decoration" aria-hidden="true">
+      <div class="street-poster"><span class="poster-tape"></span><b>APOYO</b><small>KO-FI // LOVE</small></div>
+      <div class="street-holo-plate"><span>✦</span><i>KOFI 04</i><em>↗</em></div>
+      <div class="street-bend-cable"><span></span></div>
+      <div class="street-softlight"></div>
+    </div><div class="section-tech-line" aria-hidden="true"><span>◢◤　APOYO // KO-FI</span><i></i><span>✦ 2099 / PILI</span></div><div class="section-holo-rail" aria-hidden="true"></div><div class="street-number" aria-hidden="true">04</div><span class="section-label">[ 04 / KO-FI ]</span><div class="donation-columns"><div class="donation-story"><span class="chip pink-chip">♡ UN CARIÑITO PARA PILI</span><h2 id="kofi-title" class="section-heading">¿ME INVITAS<br>UN <span class="lime">CAFÉ?</span></h2><p>¿Te gusta lo que hago? Puedes invitarme un cafecito por Ko-fi. No hace falta, pero me alegraría muchísimo. ♡</p><p class="donation-quip">La pobreza me consume, pero el cariño me mantiene con pilas, JAJA.</p><a class="button-primary donation-cta" href="https://ko-fi.com/piliuwuvt/goal?g=0#shareGoalModal" target="_blank" rel="noopener noreferrer">APOYARME EN KO-FI ↗</a><p class="donation-disclaimer">El tarrito solo suma apoyos confirmados por Ko-fi cuando el webhook está conectado; no aumenta por visitar el enlace ni representa dinero recaudado.</p><img class="donation-doodle" src="assets/pili-heart.webp" alt="Dibujo de Pili abrazando un corazón" loading="lazy"></div>
+ <div class="donation-jar-panel"><div class="donation-jar-label"><i class="online-dot"></i> TARRO DE CARIÑITO / EN VIVO</div><div class="jar-neon-halo"></div><div id="kofi-burst" class="kofi-burst" aria-hidden="true"></div><div class="jar-wrap" aria-hidden="true"><div class="jar-lid"></div><div class="jar-glass"><div class="jar-money" id="jar-money"></div><div class="jar-highlight"></div><div class="jar-decoration">♡ PILI ♡</div></div></div><div class="donation-jar-footer"><span id="donation-counter">— aportes confirmados</span><span id="donation-fill-text">0 / 20</span></div><div class="jar-progress"><div id="jar-progress-fill"></div></div><p id="donation-status" class="donation-status" role="status">Consultando tu tarrito de Ko-fi…</p></div>
+ </div></section><div class="electric-divider" aria-hidden="true"><i></i><span>⚡</span><i></i></div>
+
+<section class="social-section section-pad" id="redes"><div class="street-decoration" aria-hidden="true">
+      <div class="street-poster"><span class="poster-tape"></span><b>FOLLOW</b><small>SEÑAL // SOCIAL</small></div>
+      <div class="street-holo-plate"><span>✦</span><i>LINKS 05</i><em>↗</em></div>
+      <div class="street-bend-cable"><span></span></div>
+      <div class="street-softlight"></div>
+    </div><div class="section-tech-line" aria-hidden="true"><span>◢◤　COMMS // ON</span><i></i><span>✦ 2099 / PILI</span></div><div class="section-holo-rail" aria-hidden="true"></div><img class="social-sticker-face" src="assets/pili-cute-face.webp" alt="" aria-hidden="true" loading="lazy"><div class="street-number" aria-hidden="true">05</div><span class="section-label">[ 05 / REDES ]</span><div class="social-head"><h2 class="section-heading">¡NOS<br><span class="lime">VEMOS!</span></h2><p>¿Seguimos platicando? Búscame por aquí. 💚</p></div><div class="social-list"><a class="social-row" href="https://www.twitch.tv/pili_owu" target="_blank" rel="noopener noreferrer"><span class="social-num">01 /</span><span class="social-symbol">▣</span><span class="social-name">TWITCH<small>@pili_owu</small></span><span class="social-arrow">↗</span></a><a class="social-row" href="https://x.com/Pili_uwu2VT" target="_blank" rel="noopener noreferrer"><span class="social-num">02 /</span><span class="social-symbol">𝕏</span><span class="social-name">TWITTER / X<small>@Pili_uwu2VT</small></span><span class="social-arrow">↗</span></a><a class="social-row" href="https://www.tiktok.com/@pili_uwuvt" target="_blank" rel="noopener noreferrer"><span class="social-num">03 /</span><span class="social-symbol">♪</span><span class="social-name">TIKTOK<small>@pili_uwuvt</small></span><span class="social-arrow">↗</span></a><a class="social-row" href="https://www.instagram.com/pili_uwuvt/" target="_blank" rel="noopener noreferrer"><span class="social-num">04 /</span><span class="social-symbol">◎</span><span class="social-name">INSTAGRAM<small>@pili_uwuvt</small></span><span class="social-arrow">↗</span></a></div></section>
+
+
+<section class="notes-section section-pad" id="mensajitos" aria-labelledby="notes-title"><div class="street-decoration" aria-hidden="true">
+      <div class="street-poster"><span class="poster-tape"></span><b>HELLO!</b><small>CARTAS // CLUB</small></div>
+      <div class="street-holo-plate"><span>✦</span><i>NOTES 06</i><em>↗</em></div>
+      <div class="street-bend-cable"><span></span></div>
+      <div class="street-softlight"></div>
+    </div><div class="section-tech-line" aria-hidden="true"><span>◢◤　NOTAS // ARCHIVO</span><i></i><span>✦ 2099 / PILI</span></div><div class="section-holo-rail" aria-hidden="true"></div>
+ <div class="street-number" aria-hidden="true">05B</div>
+ <span class="section-label">[ EXTRA / MENSAJITOS ]</span>
+ <div class="notes-head">
+  <div>
+   <span class="chip pink-chip">♡ DEJA UN SALUDITO</span>
+   <h2 id="notes-title" class="section-heading">PARED DE <span class="gradient-type">NOTITAS_</span></h2>
+  </div>
+  <p>Si quieres, déjame una notita bonita. Se guardan en tu navegador, así que es un mural íntimo y cute para quien visita la página desde su dispositivo.</p>
+ </div>
+ <div class="notes-grid">
+  <form class="note-form" id="note-form">
+    <label for="note-name">TU NOMBRE</label>
+    <input id="note-name" maxlength="20" placeholder="ej. Papoi bonita">
+    <label for="note-message">MENSAJITO</label>
+    <textarea id="note-message" maxlength="95" rows="4" placeholder="Pili, me encanta tu energíaaaa ♡"></textarea>
+    <div class="note-actions">
+      <button type="submit" class="button-primary">PEGAR NOTITA ↗</button>
+      <button type="button" class="button-secondary" id="clear-notes">BORRAR MIS NOTAS</button>
+    </div>
+    <p class="notes-mini">* Estas notas viven en el navegador de quien entra, no en una base de datos global.</p>
+  </form>
+  <div class="note-board" id="note-board" aria-live="polite">
+    <div class="note-empty" id="note-empty">Todavía no hay notitas por aquí. Sé la primera en pegar una. ✦</div>
+  </div>
+ </div>
+</section><div class="electric-divider" aria-hidden="true"><i></i><span>⚡</span><i></i></div>
+
+<section class="tagwall section-pad" id="muro" aria-labelledby="tagwall-title"><div class="street-decoration" aria-hidden="true">
+      <div class="street-poster"><span class="poster-tape"></span><b>TAG!</b><small>STREET ART // PUBLIC</small></div>
+      <div class="street-holo-plate"><span>✦</span><i>WALL 07</i><em>↗</em></div>
+      <div class="street-bend-cable"><span></span></div>
+      <div class="street-softlight"></div>
+    </div><div class="section-tech-line" aria-hidden="true"><span>◢◤　CALLE // GRAFITI</span><i></i><span>✦ 2099 / PILI</span></div><div class="section-holo-rail" aria-hidden="true"></div>
+ <div class="tagwall-heading"><div><span class="section-label">[ EXTRA / PARED DE GRAFITIS ]</span><h2 id="tagwall-title" class="section-heading">DEJA TU <span class="lime">MARCA!</span></h2><p>Este muro es para rayarlo sin meterse en problemas. Toca cualquier parte y deja un grafiti de colores.</p></div><div class="tagwall-label" aria-hidden="true">SPRAY<br>ZONE ↘</div></div>
+ <div id="tagwall-canvas" class="tagwall-canvas" role="group" aria-label="Muro interactivo de grafitis"><div class="wall-mesh" aria-hidden="true"></div><div class="tagwall-start" id="tagwall-start">✷ TOCA PARA PINTAR ✷</div></div>
+ <div class="tagwall-toolbar"><span>LOS DIBUJITOS SE GUARDAN SOLO EN TU NAVEGADOR</span><button type="button" id="tagwall-clear">↻ BORRAR MIS GRAFITIS</button></div>
+</section><div class="electric-divider" aria-hidden="true"><i></i><span>⚡</span><i></i></div>
+
+<section class="clickgame-section section-pad" id="juego" aria-labelledby="game-title"><div class="street-decoration" aria-hidden="true">
+      <div class="street-poster"><span class="poster-tape"></span><b>TOP 10</b><small>GAME // RANKING</small></div>
+      <div class="street-holo-plate"><span>✦</span><i>PLAY 08</i><em>↗</em></div>
+      <div class="street-bend-cable"><span></span></div>
+      <div class="street-softlight"></div>
+    </div><div class="section-tech-line" aria-hidden="true"><span>◢◤　PUNTOS // TOP</span><i></i><span>✦ 2099 / PILI</span></div><div class="section-holo-rail" aria-hidden="true"></div><img class="clickgame-backdrop" src="assets/pili-juego-fondo.webp" alt="" aria-hidden="true" loading="lazy"><div class="street-number" aria-hidden="true">06</div><span class="section-label">[ 06 / ÚLTIMO NIVEL ]</span><div class="clickgame-head"><span class="chip green-chip">✳ MINIJUEGO</span><h2 id="game-title" class="section-heading">¡DALE <span class="gradient-type">CLIC!</span></h2><p>A ver quién se queda con el primer puesto. Escribe tu apodo y empieza a darle, JAJA.</p></div><div class="clickgame-grid"><div class="clickgame-play"><label for="player-name">TU APODO DE JUGADOR</label><div class="clickgame-join"><input id="player-name" maxlength="22" autocomplete="nickname" placeholder="Escribe tu apodo"><button type="button" id="save-player">GUARDAR</button></div><button type="button" class="clickgame-target" id="click-target" disabled aria-label="Sumar un clic">¡PÍCALE! <span>✳</span></button><div class="clickgame-score"><span>CLICS CONSEGUIDOS</span><strong id="my-clicks">0</strong></div><p id="clickgame-message" role="status">Guarda tu apodo para empezar. 💚</p></div><div class="clickgame-ranking"><h3>✳ TOP DE LA GUARIDA</h3><p>El ranking es compartido entre quienes juegan.</p><ol id="ranking-list"><li>Cargando posiciones…</li></ol><button id="refresh-ranking" type="button">↻ ACTUALIZAR RANKING</button><p class="ranking-warning">Competencia casual: sin cuentas verificadas y sin protección total contra trampas.</p></div></div></section>
+<section class="end-banner"><div class="end-banner-glow"></div><p>GRACIAS POR PASARTE POR MI GUARIDA</p><h2>ADIÓS, <span>PAPOI ♡</span></h2><img src="assets/pili-glasses.webp" alt="" aria-hidden="true" loading="lazy"><span>— CON CARIÑO, TU MAPACHITA PILI ✳</span></section>
+</main>
+<footer><a href="#inicio" class="footer-logo">✳ PILI.EXE</a><span>HECHO CON 💚, ARTE Y UN MONTÓN DE GANAS</span><a href="#inicio">VOLVER ARRIBA ↑</a></footer>
+<script defer src="script.js"></script><script defer src="effects.js"></script><script defer src="urban.js"></script><script defer src="intro-sound.js"></script><script defer src="laser.js"></script><script defer src="street.js"></script><script defer src="pili-wow.js"></script><script defer src="extra.js"></script><script defer src="nightcity.js"></script><script defer src="street-ultra.js"></script>
+</body></html>

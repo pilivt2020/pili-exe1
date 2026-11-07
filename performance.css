@@ -1,0 +1,14 @@
+/* Fast path rendering: sections below viewport do not paint until needed. */
+@supports(content-visibility:auto){
+ .about,.music-section,.world,.donation-zone,.social-section,.notes-section,.tagwall,.clickgame-section{content-visibility:auto;contain-intrinsic-size:auto 850px}
+}
+@media(max-width:760px){
+ html{scroll-behavior:auto}
+ .city-atmosphere,.street-beams,.liquid-chrome,.street-powerline,.urban-hologram,.city-ground-reflection{animation:none!important}
+ .city-horizon,.street-aesthetic,.site-grid{filter:none!important}
+ .music-player,.donation-jar-panel,.about-frame,.clip-card,.social-row,.clickgame-play,.clickgame-ranking{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+ .boot-particle-stage{opacity:.65}
+ .section-heading,.hero-pili{filter:drop-shadow(0 0 6px #a400ff55)!important}
+ .hero-art,.hero-avatar{will-change:auto!important}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}

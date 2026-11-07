@@ -1,0 +1,40 @@
+
+/* ===== PILI.EXE extra toys pack ===== */
+.secret-tracker{position:fixed;right:16px;top:96px;z-index:32;padding:11px 15px;border:1px solid #39ff1496;border-radius:999px;background:rgba(8,4,18,.84);backdrop-filter:blur(14px);font:700 11px var(--mono);color:var(--lime);box-shadow:0 0 22px #39ff1433}
+.pili-mascot{position:fixed;left:24px;bottom:18px;z-index:32;display:flex;flex-direction:column;align-items:flex-start;gap:8px;pointer-events:none;--mx:0px;--my:0px;transform:translate(var(--mx),var(--my));transition:transform 1.8s cubic-bezier(.2,.85,.15,1)}
+.mascot-button{pointer-events:auto;width:92px;height:92px;border-radius:28px;border:2px solid var(--cyan);background:radial-gradient(circle at 30% 20%,#ffffff26,transparent 40%),linear-gradient(145deg,#120823,#321454);box-shadow:0 0 30px #00ffff2f,0 0 0 4px rgba(255,255,255,.05) inset;padding:10px;position:relative;animation:mascotBob 3.5s ease-in-out infinite}
+.mascot-button img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 12px #c78cff)}
+.mascot-bubble{pointer-events:none;max-width:180px;padding:10px 14px;border-radius:16px 16px 16px 4px;background:rgba(8,5,17,.92);border:1px solid #c371ff8b;color:var(--white);font-size:12px;line-height:1.35;box-shadow:0 0 24px #be4bff29}
+.mascot-sleep{position:absolute;left:78px;top:-8px;color:var(--lime);font:700 16px var(--mono);text-shadow:0 0 10px var(--lime);opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s}
+.pili-mascot.is-sleeping .mascot-sleep{opacity:1;transform:translateY(0)}
+.pili-mascot.is-sleeping .mascot-button{filter:saturate(.75);animation-duration:5s}
+@keyframes mascotBob{50%{transform:translateY(-9px) rotate(2deg)}}
+.secret-modal{position:fixed;inset:0;z-index:70;display:grid;place-items:center;padding:24px;background:rgba(3,2,8,.75);backdrop-filter:blur(12px)}
+.secret-modal-card{width:min(100%,520px);padding:28px;border:1px solid #bd84ff;background:linear-gradient(160deg,#140b25,#27113a 65%,#0b0a17);box-shadow:0 0 0 2px rgba(255,255,255,.05) inset,0 20px 70px rgba(0,0,0,.4);text-align:center;clip-path:polygon(0 0,100% 0,100% 90%,94% 100%,0 100%)}
+.secret-modal-card img{width:140px;height:auto;display:block;margin:0 auto 10px;filter:drop-shadow(0 0 22px #ff52b1a6)}
+.secret-modal-card h3{font:normal clamp(28px,4vw,44px) var(--display);margin:0 0 10px;line-height:1}
+.secret-modal-card p{color:#e3d6ef;line-height:1.7;font-size:15px}
+.secret-modal-card button{margin-top:10px;padding:14px 20px;border:none;background:var(--lime);color:#04080d;font:700 12px var(--mono);box-shadow:5px 5px 0 var(--violet)}
+.secret-chip{position:absolute;z-index:6;width:42px;height:42px;border-radius:50%;border:1px solid #7cf0ff90;background:radial-gradient(circle at 35% 35%,#fff6,transparent 40%),linear-gradient(145deg,#1d0e30,#0c1020);color:#fff;display:grid;place-items:center;font-size:18px;box-shadow:0 0 18px #00ffff28;cursor:pointer;transition:transform .25s,opacity .25s,box-shadow .25s}
+.secret-chip:hover{transform:scale(1.09) rotate(-8deg);box-shadow:0 0 24px #39ff1490}
+.secret-chip.is-found{opacity:0;transform:scale(.3);pointer-events:none}
+@keyframes discAura{to{transform:rotate(360deg)}}
+.notes-section{position:relative;overflow:hidden;background:radial-gradient(circle at 15% 30%,#ff00b812,transparent 30%),radial-gradient(circle at 88% 70%,#39ff1410,transparent 28%),#0d0717}
+.notes-grid{display:grid;grid-template-columns:minmax(280px,.8fr) minmax(0,1fr);gap:26px;align-items:start}
+.note-form,.note-board{padding:24px;border:1px solid #8c52c6;background:linear-gradient(180deg,#140c24,#0d0818);box-shadow:8px 8px 0 #34115a}
+.note-form label{display:block;margin:0 0 10px;color:var(--lime);font:700 11px var(--mono)}
+.note-form input,.note-form textarea{width:100%;margin:0 0 18px;padding:13px 14px;background:#211234;border:1px solid #9164b9;color:#fff;resize:vertical}
+.note-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.notes-mini{margin:14px 0 0;color:#af9fc1;font-size:11px;line-height:1.6}
+.note-board{min-height:340px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-content:start}
+.note-empty{grid-column:1/-1;color:#cbbcd7;line-height:1.7;font-size:15px}
+.sticky-note{min-height:132px;padding:16px;border-radius:16px;box-shadow:0 10px 18px rgba(0,0,0,.18), inset 0 0 0 1px rgba(255,255,255,.08);color:#111;display:flex;flex-direction:column;justify-content:space-between;transform:rotate(var(--rot));word-break:break-word}
+.sticky-note b{font:700 13px var(--mono)}
+.sticky-note p{margin:8px 0 10px;font-size:15px;line-height:1.45;color:#120b19}
+.sticky-note span{font:700 10px var(--mono);opacity:.74}
+.sticky-note.note-a{background:#fff2a6}.sticky-note.note-b{background:#ffd0f6}.sticky-note.note-c{background:#c8fff5}.sticky-note.note-d{background:#d5ffb9}
+@media(max-width:980px){.notes-grid{grid-template-columns:1fr}.note-board{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.secret-tracker{top:76px;right:10px;padding:9px 12px;font-size:10px}.pili-mascot{left:12px;bottom:12px}.mascot-button{width:76px;height:76px}.mascot-bubble{max-width:145px;font-size:11px}.notes-head{align-items:flex-start;flex-direction:column}.tv-screen{min-height:280px}.note-board{grid-template-columns:1fr}.sticky-note{min-height:118px}}
+
+/* Importante: ocultar el diálogo de secretos hasta desbloquear los seis. */
+.secret-modal[hidden]{display:none !important;}

@@ -1,0 +1,64 @@
+/* Original PILI.EXE Night City visual pack — purely CSS, SVG and canvas. */
+:root{--nc-accent:#39ff14;--nc-accent2:#00f6ff;--nc-glow:#ff00b8;--nc-haze:#6b2dd3}
+body.fire-mode{--nc-accent:#ff8b16;--nc-accent2:#00f6ff;--nc-glow:#ff0080;--nc-haze:#dd176f}
+#night-rain{position:fixed;inset:0;width:100%;height:100%;z-index:3;pointer-events:none;opacity:.6}
+.city-atmosphere{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0;isolation:isolate}
+.atmo-aurora{position:absolute;inset:-25%;background:radial-gradient(ellipse at 15% 28%,#671fba18,transparent 35%),radial-gradient(ellipse at 75% 75%,#00f6ff0e,transparent 30%),radial-gradient(ellipse at 60% 10%,#39ff1408,transparent 25%);animation:atmoBreathe 25s ease-in-out infinite alternate}
+.atmo-glow{position:absolute;width:min(44vw,480px);height:min(40vw,440px);border-radius:50%;filter:blur(95px);mix-blend-mode:screen;opacity:.16;animation:atmoDrift 16s ease-in-out infinite alternate}
+.gl-a{left:-8%;top:30%;background:var(--nc-accent)}.gl-b{right:-12%;top:63%;background:var(--nc-glow);animation-delay:-7s}
+.city-horizon{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.83;mask-image:linear-gradient(to bottom,transparent 12%,black 48%,black 78%,transparent 100%)}
+.city-skyline{position:absolute;bottom:2%;left:-3%;width:106%;height:68%;background-position:bottom center;background-repeat:repeat-x;background-size:auto 100%;filter:drop-shadow(0 0 26px var(--nc-haze));transform:translate3d(0,0,0);will-change:transform;animation:cityParallax 32s ease-in-out infinite alternate}
+.city-far{background-image:url('assets/skyline-far.svg');opacity:.58;bottom:16%;height:55%;filter:blur(1px) drop-shadow(0 0 16px #aa4cff);animation-duration:42s}
+.city-near{background-image:url('assets/skyline-near.svg');opacity:.68;height:51%;background-size:auto 100%;animation-duration:30s}
+.city-ground-reflection{position:absolute;bottom:0;left:-2%;width:104%;height:19%;background:repeating-linear-gradient(90deg,transparent 0 35px,var(--nc-accent2) 36px 37px,transparent 39px 76px),linear-gradient(180deg,var(--nc-glow),transparent);opacity:.12;filter:blur(11px);transform:perspective(400px) rotateX(65deg);transform-origin:bottom}
+.city-cable{position:absolute;z-index:0;width:90%;height:18%;border-top:2px solid #0a0b15;opacity:.7;pointer-events:none;border-radius:0 0 50% 50%}
+.cable-a{top:17%;left:-24%;transform:rotate(9deg)}.cable-b{top:10%;right:-23%;transform:rotate(-10deg)}
+.city-ad{position:absolute;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;min-width:125px;padding:16px 11px;border:1px solid var(--nc-accent2);background:linear-gradient(135deg,#00ffff12,#160723b5 55%,#ff008024);box-shadow:inset 0 0 20px var(--nc-accent2),0 0 26px var(--nc-accent2),5px 5px 0 #0704108a;transform:skew(-9deg) rotate(-8deg);color:#dfffff;backdrop-filter:blur(6px);animation:billboardFloat 7s ease-in-out infinite;clip-path:polygon(0 10%,13% 0,100% 0,100% 90%,87% 100%,0 100%)}
+.city-ad b{font:normal clamp(15px,2.1vw,28px)/.95 'Bungee',sans-serif;letter-spacing:-1px;text-align:center;color:var(--nc-accent);text-shadow:0 0 10px var(--nc-accent),3px 3px 0 #9400ff}
+.city-ad small,.city-ad .ad-id{font:700 7px 'Space Mono',monospace;letter-spacing:1px;color:#fff}
+.city-ad .ad-id{color:var(--nc-accent2)}.ad-a{top:20%;left:5%;opacity:.78}.ad-b{top:20%;right:5%;opacity:.54;animation-delay:-3s;transform:skew(-8deg) rotate(8deg)}
+.urban-hero{isolation:isolate}.urban-hero::before{opacity:.34}.urban-hero .hero-inner{z-index:3}.urban-hero .hero-top-status,.urban-hero .hero-bottom{z-index:3}
+.urban-hero .hero-copy:before{content:'';position:absolute;inset:10% -2% 8%;z-index:-1;background:linear-gradient(90deg,#05020cc4,#05020c50,transparent);clip-path:polygon(0 0,96% 0,100% 14%,96% 100%,0 100%);filter:blur(12px);pointer-events:none}
+.urban-hero .hero-avatar{filter:drop-shadow(0 13px 13px #0009) drop-shadow(0 0 26px var(--nc-glow)) drop-shadow(0 0 49px var(--nc-accent2))}
+.urban-hero .holo-backplate{background:linear-gradient(128deg,#00ffff18,#34066b71 55%,#39ff1413);box-shadow:inset 0 0 40px var(--nc-accent2),0 0 46px var(--nc-haze)}
+.section-tech-line{position:relative;display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%;padding:0 0 12px;margin:-14px 0 32px;font:700 9px 'Space Mono',monospace;letter-spacing:1.4px;color:var(--nc-accent2);opacity:.88;z-index:3;pointer-events:none}
+.section-tech-line i{display:block;flex:1;height:1px;background:linear-gradient(90deg,var(--nc-accent2),var(--nc-glow),transparent);box-shadow:0 0 9px var(--nc-accent2)}
+.section-holo-rail{position:absolute;right:0;top:11%;width:6px;height:40%;pointer-events:none;border-left:2px solid var(--nc-accent2);border-right:1px solid var(--nc-glow);opacity:.55;filter:drop-shadow(0 0 15px var(--nc-accent2))}
+.about,.music-section,.world,.donation-zone,.social-section,.notes-section,.tagwall,.clickgame-section{isolation:isolate}
+.about:after,.music-section:after,.world:after,.donation-zone:after,.social-section:after,.notes-section:after,.tagwall:after,.clickgame-section:after{content:'';position:absolute;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(circle at 9% 11%,var(--nc-accent2) 0,transparent 22%),radial-gradient(circle at 94% 85%,var(--nc-glow) 0,transparent 27%);opacity:.048;mix-blend-mode:screen}
+.about-frame,.music-player,.clip-card,.clip-placeholder,.donation-jar-panel,.social-row,.note-form,.note-board,.tagwall-canvas,.clickgame-play,.clickgame-ranking{position:relative;backdrop-filter:blur(9px);transition:box-shadow .28s,transform .28s,border-color .28s}
+.about-frame:hover,.music-player:hover,.clip-card:hover,.donation-jar-panel:hover,.note-form:hover,.clickgame-ranking:hover{box-shadow:0 0 0 1px var(--nc-accent2),0 0 40px var(--nc-haze),9px 9px 0 var(--nc-glow)}
+.section-heading{text-shadow:0 0 20px #ff00b822}.section-heading .lime{text-shadow:0 0 22px var(--nc-accent),0 0 42px var(--nc-accent)}
+.hero-actions a,.hero-actions button,.button-primary,.music-play,.clickgame-target{filter:drop-shadow(0 0 9px var(--nc-haze))}
+.hero-actions a:hover,.hero-actions button:hover,.button-primary:hover,.music-play:hover{filter:drop-shadow(0 0 19px var(--nc-accent2))}
+/* Neon city fog */
+.about:before,.music-section:before,.world:before,.donation-zone:before,.social-section:before,.notes-section:before,.tagwall:before,.clickgame-section:before{background-image:linear-gradient(0deg,transparent,transparent 68%,#34083d15),repeating-linear-gradient(94deg,transparent 0 62px,#00ffff07 63px 64px)!important}
+/* Distinct zone signs and street-poster edges */
+.street-number{font-family:'Rubik Spray Paint','Permanent Marker',cursive!important;opacity:.12;filter:drop-shadow(0 0 9px var(--nc-accent))}
+.section-label{position:relative;border-left:3px solid var(--nc-accent);padding-left:10px;letter-spacing:1.5px}
+.end-banner:after{content:'PILI DISTRICT // NO SIGNAL LOST';position:absolute;bottom:11px;left:12px;font:700 10px 'Space Mono',monospace;letter-spacing:1.7px;color:#e8f8ff8a;transform:rotate(-2deg);pointer-events:none}
+/* Colored offsets, restrained */
+.section-heading{filter:drop-shadow(2px 2px 0 #ff00b819)}
+body.fire-mode .city-horizon{filter:hue-rotate(128deg) saturate(1.6)}
+body.fire-mode .city-far{filter:hue-rotate(140deg) blur(1px) drop-shadow(0 0 24px #ff0080)}
+body.fire-mode .city-near{filter:hue-rotate(95deg) drop-shadow(0 0 28px #ff8a00)}
+body.fire-mode .city-ground-reflection{background:repeating-linear-gradient(90deg,transparent 0 34px,#ff8a00 35px 38px,transparent 39px 70px),linear-gradient(180deg,#ff0080,transparent)}
+body.fire-mode .city-ad{border-color:#ff8a00;background:linear-gradient(135deg,#ff8a0020,#160723d8 55%,#ff00804b);box-shadow:inset 0 0 20px #ff8a0077,0 0 30px #ff8a00,6px 5px 0 #080112}
+body.fire-mode .city-ad b{color:#ff8a00;text-shadow:0 0 12px #ff8a00,3px 3px 0 #ff0080}
+body.fire-mode .atmo-aurora{background:radial-gradient(ellipse at 15% 28%,#ff00801f,transparent 35%),radial-gradient(ellipse at 75% 75%,#ff8a0011,transparent 30%),radial-gradient(ellipse at 60% 10%,#00ffff09,transparent 25%)}
+body.fire-mode .urban-hero .hero-avatar{filter:drop-shadow(0 12px 14px #0009) drop-shadow(0 0 26px #ff00808a) drop-shadow(0 0 54px #ff8a0068)}
+body.fire-mode .section-holo-rail{border-color:#ff8a00;filter:drop-shadow(0 0 12px #ff8a00)}
+body.fire-mode .section-tech-line{color:#ff8a00}
+body.fire-mode .section-tech-line i{background:linear-gradient(90deg,#ff8a00,#ff0080,transparent)}
+/* desktop custom crosshair, native cursor for touch */
+#cyber-cursor{position:fixed;z-index:999;left:0;top:0;width:32px;height:32px;border:1px solid var(--nc-accent2);border-radius:50%;box-shadow:0 0 13px var(--nc-accent2),inset 0 0 12px #00ffff31;pointer-events:none;opacity:0;transform:translate3d(-100px,-100px,0);transition:opacity .15s,width .16s,height .16s;mix-blend-mode:screen}
+#cyber-cursor span{position:absolute;inset:14px;background:var(--nc-accent);border-radius:50%;box-shadow:0 0 12px var(--nc-accent)}
+#cyber-cursor.over-link{width:47px;height:47px;border-color:var(--nc-accent);box-shadow:0 0 21px var(--nc-accent)}
+#cyber-cursor.over-link span{inset:21px}
+@keyframes billboardFloat{50%{translate:0 -12px;opacity:.95}}
+@keyframes cityParallax{to{transform:translate3d(-34px,7px,0)}}
+@keyframes atmoBreathe{to{transform:scale(1.2) rotate(6deg);opacity:.8}}
+@keyframes atmoDrift{to{translate:8vw -4vh}}
+@media(pointer:coarse){#cyber-cursor{display:none}}
+@media(max-width:760px){.city-horizon{opacity:.55}.city-far{height:44%;bottom:14%}.city-near{height:39%}.ad-a{top:16%;left:2%;scale:.65;transform-origin:top left}.ad-b{top:28%;right:-3%;scale:.58;transform-origin:top right}.section-tech-line{font-size:8px;letter-spacing:.5px;margin-bottom:18px}.section-tech-line span:last-child{display:none}#night-rain{opacity:.4}}
+@media(prefers-reduced-motion:reduce){.city-skyline,.city-ad,.atmo-aurora,.atmo-glow{animation:none!important}#night-rain,#cyber-cursor{display:none!important}}

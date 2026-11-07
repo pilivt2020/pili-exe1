@@ -1,0 +1,55 @@
+
+/* PILI EXE / STREET WALL — original graphic system */
+:root{--lime:#39ff14;--pink:#ff00b8;--cyan:#00f6ff;--violet:#9400ff}
+body{background:#050308}
+.section-pad{isolation:isolate}
+.about,.music-section,.world,.donation-zone,.social-section,.clickgame-section,.tagwall{position:relative}
+.about::before,.music-section::before,.world::before,.donation-zone::before,.social-section::before,.clickgame-section::before{z-index:-1!important;opacity:1!important;background:radial-gradient(circle at 6% 75%,#40ff141c,transparent 28%),radial-gradient(circle at 95% 16%,#fc00df25,transparent 30%),repeating-linear-gradient(120deg,transparent 0 130px,#00ffff0d 131px 133px),repeating-radial-gradient(circle at 95% 84%,#9900ff16 0 3px,transparent 4px 24px)!important}
+/* All content district backgrounds are authored gradients and procedural patterns */
+.about{background:radial-gradient(ellipse at 14% 35%,#50017e6e,transparent 45%),linear-gradient(123deg,#0b0614,#16051d 63%,#07060d)}
+.music-section{background:radial-gradient(ellipse at 82% 18%,#00d9ff27,transparent 40%),linear-gradient(112deg,#0b0413,#250739 60%,#090613)}
+.world{background:radial-gradient(ellipse at 15% 65%,#39ff1423,transparent 40%),linear-gradient(140deg,#0d0419,#050512 64%,#1f0632)}
+.donation-zone{background:radial-gradient(ellipse at 83% 24%,#ff00b824,transparent 40%),linear-gradient(145deg,#1e052f,#0a0712)}
+.social-section{background:radial-gradient(ellipse at 20% 18%,#7b00ef35,transparent 45%),linear-gradient(110deg,#08040c,#200531,#06070c)}
+.clickgame-section{background:radial-gradient(ellipse at 92% 45%,#39ff1426,transparent 37%),linear-gradient(135deg,#0d041b,#06040a)}
+.section-heading{font-family:'Bungee','Archivo Black',sans-serif;font-weight:900;font-size:clamp(42px,6.1vw,100px);line-height:.97;letter-spacing:-.06em;transform:skewX(-6deg) rotate(-1.5deg);transform-origin:left center;filter:drop-shadow(2px 2px 0 #0d011e) drop-shadow(5px 5px 0 #8a00f0);text-shadow:0 0 18px #ff00b854;position:relative;z-index:2;overflow-wrap:anywhere}
+.section-heading .lime{color:#39ff14;text-shadow:0 0 9px #39ff14,0 0 30px #39ff1480,-3px 3px #0a0613}
+.section-heading .gradient-type{background:linear-gradient(128deg,#39ff14 0%,#00ffff 43%,#fe00b9 81%);background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent;-webkit-text-stroke:1px #e7d7ff29;filter:drop-shadow(0 0 15px #9700ff)}
+.section-label{background:#090613b8;padding:8px 12px;border:1px solid #39ff1466;box-shadow:4px 4px 0 #9d00f06b;position:relative;z-index:3}
+.section-label:before{background:#00ffff;box-shadow:0 0 12px #00ffff}
+.street-number{font-family:'Bungee',sans-serif;position:absolute;right:2%;top:2%;font-size:clamp(140px,25vw,350px);line-height:1;color:transparent;-webkit-text-stroke:2px #b000ff1c;pointer-events:none;z-index:0;transform:rotate(12deg);filter:drop-shadow(0 0 16px #a000ff28)}
+.about-layout,.music-layout,.world-head,.clips-toolbar,.clips-grid,.donation-columns,.social-head,.social-list,.clickgame-grid,.clickgame-head{position:relative;z-index:2}
+.about-copy,.donation-story{position:relative}
+.about-copy:before,.donation-story:before{content:'✷';position:absolute;font:100px 'Bungee',sans-serif;color:#39ff142a;right:0;top:-90px;transform:rotate(-22deg);text-shadow:0 0 25px #39ff14}
+.about-frame{box-shadow:13px 13px 0 #39ff14,-8px -8px 0 #ff00b8,0 0 54px #00ffff55!important;transform:rotate(2deg)}
+.music-player{border:2px solid #00ffff;box-shadow:10px 10px 0 #ff00b8,0 0 22px #00ffff6e,0 0 66px #9400ff58!important}
+.music-disc{box-shadow:0 0 28px #00ffff88,0 0 65px #9400ff77,inset 0 0 28px #ff00b86e!important}
+.music-play,.button-primary,.clips-all,.donation-cta{box-shadow:0 0 18px #39ff1499,5px 5px 0 #9400ff!important}
+.clips-grid .clip-card{box-shadow:7px 7px 0 #fa00da,0 0 20px #8c00ff5c!important;transform:rotate(-.7deg);transition:transform .22s,box-shadow .22s}
+.clips-grid .clip-card:nth-child(even){transform:rotate(.8deg)}.clips-grid .clip-card:hover{transform:translateY(-8px) rotate(0)!important;box-shadow:8px 8px 0 #39ff14,0 0 36px #00ffff80!important}
+.donation-jar-panel{box-shadow:11px 11px 0 #39ff14,0 0 35px #ff00b892,0 0 90px #9400ff45!important}
+.jar-neon-halo{filter:blur(12px) drop-shadow(0 0 20px #39ff14)}
+.social-row{position:relative;overflow:hidden;clip-path:polygon(0 0,99% 0,100% 16%,100% 100%,1% 100%,0 84%);box-shadow:inset 0 0 0 1px #a900f733;background:linear-gradient(90deg,#0f061acc,#31074a99)!important}
+.social-row:before{content:'';position:absolute;left:-100%;top:0;width:100%;height:100%;background:linear-gradient(90deg,transparent,#39ff143c,transparent);transition:left .48s;pointer-events:none}
+.social-row:hover:before{left:100%}.social-row:hover{background:#39ff14!important;color:#040708!important;filter:drop-shadow(0 0 16px #39ff14)}
+.clickgame-play,.clickgame-ranking{border:2px solid #00ffff;box-shadow:10px 10px 0 #9b00ff,0 0 32px #00ffff3e!important}
+.clickgame-target{box-shadow:0 0 30px #39ff14,0 0 95px #39ff1466,8px 8px 0 #ff00b8!important}
+.end-banner{background:linear-gradient(120deg,#290035,#7500b3 49%,#d6009c)!important;box-shadow:inset 0 0 70px #00ffff45;isolation:isolate}
+.end-banner:after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(145deg,transparent 0 90px,#39ff1415 92px 95px);z-index:0;pointer-events:none}
+.end-banner h2{font-family:'Rubik Spray Paint','Bungee',sans-serif;transform:rotate(-4deg) skew(-4deg);font-size:clamp(48px,9vw,150px);text-shadow:7px 8px 0 #08030f,12px 14px 0 #00ffff,0 0 40px #ff00b8}
+.end-banner h2 span{color:#39ff14;text-shadow:5px 5px 0 #04040c,0 0 28px #39ff14}
+.edge-sticker{position:absolute;right:7%;top:8%;transform:rotate(14deg);font:normal clamp(24px,4vw,60px) 'Permanent Marker',cursive;color:#ff00b8;text-shadow:4px 4px 0 #0c0414,0 0 15px #ff00b8;pointer-events:none;z-index:2}
+#fx-canvas{position:fixed;inset:0;pointer-events:none;z-index:48!important;mix-blend-mode:screen}
+/* Paintable wall, independent of the public ranking */
+.tagwall{padding-block:clamp(65px,7vw,120px);background:radial-gradient(ellipse at 45% 20%,#50007766,transparent 55%),linear-gradient(130deg,#03040b,#170722 60%,#09040b);border-top:3px solid #39ff14;overflow:hidden;position:relative;isolation:isolate}
+.tagwall:before{content:'';position:absolute;inset:0;background:repeating-radial-gradient(circle at 8% 60%,#39ff140d 0 2px,transparent 3px 31px),repeating-linear-gradient(20deg,transparent 0 125px,#ff00b810 128px 130px);pointer-events:none}
+.tagwall-heading{display:flex;align-items:center;justify-content:space-between;gap:25px;position:relative;z-index:2}.tagwall-heading p{max-width:570px;color:#e6caff;line-height:1.6;font-size:17px;margin-top:20px}
+.tagwall-label{font:normal clamp(32px,6vw,92px)/1 'Rubik Spray Paint','Bungee',sans-serif;color:#39ff14;text-shadow:5px 5px 0 #ff00b8;transform:rotate(12deg)}
+.tagwall-canvas{position:relative;z-index:2;width:100%;height:clamp(280px,37vw,520px);overflow:hidden;isolation:isolate;touch-action:manipulation;cursor:crosshair;border:3px solid #a800ff;box-shadow:10px 10px 0 #39ff14,0 0 50px #8500ffa6;background:linear-gradient(152deg,#06060ded,#17052ddc),repeating-linear-gradient(90deg,#aaa 0 2px,#222 3px 54px)}
+.wall-mesh{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,#00ffff10 0 1px,transparent 2px 38px),repeating-linear-gradient(90deg,#39ff140e 0 1px,transparent 2px 38px),radial-gradient(circle at 80% 20%,#ff00b82a,transparent 30%)}
+.tagwall-start{position:absolute;inset:0;display:grid;place-items:center;color:#f6edff;font:normal clamp(21px,4vw,53px) 'Permanent Marker',cursive;letter-spacing:.05em;text-shadow:0 0 30px #39ff14,5px 5px #8800dd;pointer-events:none;text-align:center;padding:15px}
+.wall-tag{position:absolute;z-index:2;pointer-events:none;font:normal clamp(23px,3.8vw,60px) 'Permanent Marker',cursive;transform:translate(-50%,-50%) rotate(var(--rot));text-shadow:3px 3px 0 #08030d,0 0 16px currentColor;white-space:nowrap;user-select:none}
+.tagwall-toolbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:15px;margin-top:25px;position:relative;z-index:2;font:10px 'Space Mono',monospace;color:#b6a3ca}
+#tagwall-clear{font:700 11px 'Space Mono',monospace;background:#39ff14;color:#05020a;border:0;padding:12px 16px;box-shadow:4px 4px #ff00b8;cursor:pointer}
+@media(max-width:760px){.tagwall-heading{display:block}.tagwall-label{position:absolute;right:0;top:0;font-size:32px;opacity:.4}.street-number{font-size:120px}.section-heading{font-size:clamp(39px,10vw,72px)}.end-banner h2{font-size:clamp(42px,10vw,86px)}}
+@media(prefers-reduced-motion:reduce){.clips-grid .clip-card,.social-row{transition:none}}

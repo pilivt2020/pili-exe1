@@ -1,0 +1,9 @@
+{
+  "name": "pili-exe",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Pili VTuber page, Netlify Functions and Blobs",
+  "dependencies": {
+    "@netlify/blobs": "^10.5.0"
+  }
+}
