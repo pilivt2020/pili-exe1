@@ -1,4 +1,4 @@
-const { getStore } = require('@netlify/blobs');
+const { getStore, connectLambda } = require('@netlify/blobs');
 const reply=(statusCode,body)=>({statusCode,headers:{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'},body:JSON.stringify(body)});
 const validId=(v)=>typeof v==='string' && /^[a-f0-9-]{36}$/.test(v);
 const cleanName=(name)=>typeof name==='string' ? name.trim().replace(/[<>\x00-\x1f]/g,'').slice(0,22) : '';
@@ -11,7 +11,8 @@ const loadRank=async (store)=>{
 exports.handler=async(event)=>{
   if(!['GET','POST'].includes(event.httpMethod))return reply(405,{error:'Método no permitido'});
   try {
-    const store=getStore('pili-clickgame');
+    connectLambda(event);
+const store = getStore('pili-clickgame');
     if(event.httpMethod==='GET')return reply(200,{ranking:await loadRank(store)});
     let body;
     try{body=JSON.parse(event.body||'{}')}catch{return reply(400,{error:'Solicitud inválida'})}
